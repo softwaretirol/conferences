@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWXCSharp", "DWXCSharp\DWXCSharp.csproj", "{9E92AA19-5AEF-4FB9-956E-2EAD5A842FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{47F483F2-64DB-4894-9729-10352B1B4596}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E92AA19-5AEF-4FB9-956E-2EAD5A842FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E92AA19-5AEF-4FB9-956E-2EAD5A842FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E92AA19-5AEF-4FB9-956E-2EAD5A842FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E92AA19-5AEF-4FB9-956E-2EAD5A842FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F483F2-64DB-4894-9729-10352B1B4596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F483F2-64DB-4894-9729-10352B1B4596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F483F2-64DB-4894-9729-10352B1B4596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F483F2-64DB-4894-9729-10352B1B4596}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
