@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿################################################################################
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
@@ -25,3 +26,19 @@ Release/
 /TopTech.NET Setup/%this%.CA.dll
 /TopTech.NET Setup/wix/TopTech.NET Setup.g.wxs
 /TopTech.Setup/CustomAction.config
+=======
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+*.db
+*.user
+*.tmp_proj
+*.DotSettings
+packages/
+bin/
+obj/
+Debug/
+Release/
+>>>>>>> b3a5269143f64ff99dd90bb51951af43f59e8e57
