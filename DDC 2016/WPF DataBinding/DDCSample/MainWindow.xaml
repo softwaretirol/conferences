@@ -1,0 +1,59 @@
+﻿<Window x:Class="DDCSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DDCSample"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <!--<Window.Resources>
+        <local:Person Vorname="Christian" x:Key="person1"/>
+        <local:Person Vorname="{Binding Source={StaticResource person1}}" x:Key="person2"/>
+    </Window.Resources>-->
+    <Window.DataContext>
+        <local:Person Vorname="Christian" Nachname="Giesswein"/>
+    </Window.DataContext>
+    <StackPanel>
+        <TextBox Text="{Binding Vorname}" />
+
+        <TextBox Text="{Binding Vorname}" />
+        <TextBlock Text="{Binding Vorname}"/>
+        <TextBlock Text="{Binding Number}"/>
+        
+        <TextBlock Text="{Binding Number, StringFormat='{}{0} ist die Zahl.'}"/>
+
+        <TextBlock>
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0} {1}">
+                    <MultiBinding.Bindings>
+                        <Binding Path="Vorname"/>
+                        <Binding Path="Nachname"/>
+                    </MultiBinding.Bindings>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+
+        <TextBlock FontSize="40">
+            <TextBlock.Text>
+                <PriorityBinding>
+                    <Binding Path="SlowNumber" IsAsync="true"/>
+                    <Binding Path="FastNumber"/>
+                </PriorityBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        
+        <Button Content="Hallo" Margin="10">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="Black" 
+                            BorderThickness="1"
+                            Margin="{TemplateBinding Margin}">
+                        <ContentPresenter/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <TextBox Text="{local:PropertyChangedBinding Number}"/>
+    </StackPanel>
+</Window>

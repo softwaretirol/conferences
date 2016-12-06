@@ -1,0 +1,27 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.suo
+*.db
+*.user
+*.tmp_proj
+*.DotSettings
+packages/
+bin/
+obj/
+Debug/
+Release/
+/WAWI.sln.ide
+/Output
+/TopTech.NET Setup/wix
+/TopTech.NET Setup/TOPTECH.NET Setup.wxs
+/TopTech.NET Setup/TopTech.NET Setup.pdb
+/TopTech.NET Setup/TOPTECH.NET Setup.msi
+/TopTech.NET Setup/TOPTECH.NET Setup.exe
+/TopTech.NET Setup/test.bat
+/TopTech.NET Setup/MyLogFile.txt
+/TopTech.NET Setup/CustomAction.config
+/TopTech.NET Setup/%this%.CA.dll
+/TopTech.NET Setup/wix/TopTech.NET Setup.g.wxs
+/TopTech.Setup/CustomAction.config
