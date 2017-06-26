@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMDWX", "PRISMDWX\PRISMDWX.csproj", "{FC4CE240-8A1A-4A87-8DB2-D5EB574120FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{DEC4082E-5C7C-4B14-A859-3FE72A3576A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{538AA37A-7462-4DDB-B950-DD9683703373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC4CE240-8A1A-4A87-8DB2-D5EB574120FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC4CE240-8A1A-4A87-8DB2-D5EB574120FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC4CE240-8A1A-4A87-8DB2-D5EB574120FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC4CE240-8A1A-4A87-8DB2-D5EB574120FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEC4082E-5C7C-4B14-A859-3FE72A3576A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEC4082E-5C7C-4B14-A859-3FE72A3576A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEC4082E-5C7C-4B14-A859-3FE72A3576A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEC4082E-5C7C-4B14-A859-3FE72A3576A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538AA37A-7462-4DDB-B950-DD9683703373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538AA37A-7462-4DDB-B950-DD9683703373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538AA37A-7462-4DDB-B950-DD9683703373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538AA37A-7462-4DDB-B950-DD9683703373}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
