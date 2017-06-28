@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="DWXSample.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:DWXSample"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpfInfrastructure="clr-namespace:WPFInfrastructure;assembly=WPFInfrastructure"
+    Title="MainWindow"
+    Width="525"
+    Height="350"
+    d:DataContext="{d:DesignInstance local:PersonViewModel, d:IsDesignTimeCreatable=false}"
+    mc:Ignorable="d">
+    <!--<d:Window.DataContext>
+       <local:PersonViewModel/> 
+    </d:Window.DataContext>-->
+    <StackPanel Background="Red">
+        <TextBox Text="{Binding Vorname}" />
+        <ComboBox ItemsSource="{Binding AvailableGeschlechter}" SelectedItem="{Binding Person.Geschlecht}" />
+
+        <ListBox ItemsSource="{Binding Person.Adressen}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBox Text="{PropertyBinding Path=Id, Mode=OneTime}">
+                        </TextBox>
+                        <Button Content="Delete" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>
