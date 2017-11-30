@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IOCSample", "IOCSample\IOCSample.csproj", "{3EFB0A8E-E2C4-433D-923D-1ECD3B75D274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMSample.App", "PRISMSample.App\PRISMSample.App.csproj", "{F6AF1A39-6D8A-44CC-93A7-261005447C46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMSample.Data", "PRISMSample.Data\PRISMSample.Data.csproj", "{E0613EAC-2D99-4988-8720-1D1D42B11991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMSample.Interfaces", "PRISMSample.Interfaces\PRISMSample.Interfaces.csproj", "{39B60C1B-9067-4451-9A21-84CF0545344B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMSample.Artikelverwaltung", "PRISMSample.Artikelverwaltung\PRISMSample.Artikelverwaltung.csproj", "{2765F062-BF41-4F09-9083-997E22352545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PRISMSample.Bestellverwaltung", "PRISMSample.Bestellverwaltung\PRISMSample.Bestellverwaltung.csproj", "{485A1E30-BB02-4F6D-B205-4A22EF61C7A0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EFB0A8E-E2C4-433D-923D-1ECD3B75D274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFB0A8E-E2C4-433D-923D-1ECD3B75D274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFB0A8E-E2C4-433D-923D-1ECD3B75D274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFB0A8E-E2C4-433D-923D-1ECD3B75D274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6AF1A39-6D8A-44CC-93A7-261005447C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6AF1A39-6D8A-44CC-93A7-261005447C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6AF1A39-6D8A-44CC-93A7-261005447C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6AF1A39-6D8A-44CC-93A7-261005447C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0613EAC-2D99-4988-8720-1D1D42B11991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0613EAC-2D99-4988-8720-1D1D42B11991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0613EAC-2D99-4988-8720-1D1D42B11991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0613EAC-2D99-4988-8720-1D1D42B11991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39B60C1B-9067-4451-9A21-84CF0545344B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39B60C1B-9067-4451-9A21-84CF0545344B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39B60C1B-9067-4451-9A21-84CF0545344B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39B60C1B-9067-4451-9A21-84CF0545344B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2765F062-BF41-4F09-9083-997E22352545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2765F062-BF41-4F09-9083-997E22352545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2765F062-BF41-4F09-9083-997E22352545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2765F062-BF41-4F09-9083-997E22352545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{485A1E30-BB02-4F6D-B205-4A22EF61C7A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{485A1E30-BB02-4F6D-B205-4A22EF61C7A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{485A1E30-BB02-4F6D-B205-4A22EF61C7A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{485A1E30-BB02-4F6D-B205-4A22EF61C7A0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F90D3F93-0ADA-4AFC-BF87-425930D34433}
+	EndGlobalSection
+EndGlobal

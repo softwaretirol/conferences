@@ -1,0 +1,7 @@
+﻿<MenuItem
+    x:Class="PRISMSample.Artikelverwaltung.OrderManagementMenuEntry"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Header="Bestellverwaltung">
+    <MenuItem Command="{Binding ShowArticleManagementCommand}" Header="Zeige Artikelstamm" />
+</MenuItem>

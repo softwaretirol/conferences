@@ -1,0 +1,26 @@
+﻿<Window
+    x:Class="PRISMSample.App.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:interfaces="clr-namespace:PRISMSample.Interfaces;assembly=PRISMSample.Interfaces"
+    xmlns:local="clr-namespace:PRISMSample.App"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mvvm="http://prismlibrary.com/"
+    Title="MainWindow"
+    Width="525"
+    Height="350"
+    d:DataContext="{d:DesignInstance local:MainWindowViewModel}"
+    mc:Ignorable="d">
+    <!--  mvvm:ViewModelLocator.AutoWireViewModel="True"  -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" mvvm:RegionManager.RegionName="{x:Static interfaces:RegionNames.MenuRegionName}" />
+        <ContentControl Grid.Row="1" mvvm:RegionManager.RegionName="{x:Static interfaces:RegionNames.ContentRegionName}" />
+    </Grid>
+
+</Window>
