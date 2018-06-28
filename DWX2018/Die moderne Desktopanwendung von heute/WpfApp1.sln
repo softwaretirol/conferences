@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "WpfApp1\WpfApp1.csproj", "{DDF6482A-A33D-42D8-BCE1-8DF5F3C5392B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StandardLib", "StandardLib\StandardLib.csproj", "{3B2A3BCB-7E53-444F-8C95-8D34CD1FE115}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestService", "RestService\RestService.csproj", "{23C51F0E-B3E9-449A-AA4A-8DE8A455EFA4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDF6482A-A33D-42D8-BCE1-8DF5F3C5392B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDF6482A-A33D-42D8-BCE1-8DF5F3C5392B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDF6482A-A33D-42D8-BCE1-8DF5F3C5392B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDF6482A-A33D-42D8-BCE1-8DF5F3C5392B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B2A3BCB-7E53-444F-8C95-8D34CD1FE115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B2A3BCB-7E53-444F-8C95-8D34CD1FE115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B2A3BCB-7E53-444F-8C95-8D34CD1FE115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B2A3BCB-7E53-444F-8C95-8D34CD1FE115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23C51F0E-B3E9-449A-AA4A-8DE8A455EFA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C51F0E-B3E9-449A-AA4A-8DE8A455EFA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C51F0E-B3E9-449A-AA4A-8DE8A455EFA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C51F0E-B3E9-449A-AA4A-8DE8A455EFA4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DF13FC7-8695-4357-9B9C-12269C2021E9}
+	EndGlobalSection
+EndGlobal
