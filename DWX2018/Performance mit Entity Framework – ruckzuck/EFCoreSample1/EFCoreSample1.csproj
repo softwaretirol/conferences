@@ -126,5 +126,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFCoreSample2\EFCoreSample2.csproj">
+      <Project>{F152CE82-5A63-4B9B-8AEB-02BDE830C394}</Project>
+      <Name>EFCoreSample2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

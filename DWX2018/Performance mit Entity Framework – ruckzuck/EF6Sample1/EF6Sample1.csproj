@@ -61,6 +61,14 @@
     <Compile Include="Migrations\201806280925206_AddedAttributestoArticle.Designer.cs">
       <DependentUpon>201806280925206_AddedAttributestoArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806281219210_AddedCustomer.cs" />
+    <Compile Include="Migrations\201806281219210_AddedCustomer.Designer.cs">
+      <DependentUpon>201806281219210_AddedCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281221009_RemovedNotUsefullStuff.cs" />
+    <Compile Include="Migrations\201806281221009_RemovedNotUsefullStuff.Designer.cs">
+      <DependentUpon>201806281221009_RemovedNotUsefullStuff.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +86,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806280925206_AddedAttributestoArticle.resx">
       <DependentUpon>201806280925206_AddedAttributestoArticle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281219210_AddedCustomer.resx">
+      <DependentUpon>201806281219210_AddedCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281221009_RemovedNotUsefullStuff.resx">
+      <DependentUpon>201806281221009_RemovedNotUsefullStuff.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

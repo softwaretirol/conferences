@@ -1,0 +1,23 @@
+﻿@page "/"
+@inherits IndexController
+
+<h1>Hello, world!</h1>
+<p>@Number</p>
+<button onclick="@(() => IncrementNumber())">
+    Increment number...
+</button>
+@if (Persons == null)
+{
+    <p>Daten noch nicht geladen...</p>
+
+}
+else
+{
+<table>
+    @foreach (var person in Persons)
+    {
+        <Person Id="@person.FirstName"></Person>
+    }
+</table>
+}
+

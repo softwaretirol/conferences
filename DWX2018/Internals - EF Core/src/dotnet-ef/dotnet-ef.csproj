@@ -1,0 +1,125 @@
+﻿<Project>
+
+  <Sdk Name="Microsoft.NET.Sdk" />
+  <Sdk Name="Microsoft.DotNet.GlobalTools.Sdk" />
+
+  <PropertyGroup>
+    <Description>Entity Framework Core Tools for the .NET Command-Line Interface.
+
+Enables these commonly used dotnet-ef commands:
+dotnet ef migrations add
+dotnet ef migrations list
+dotnet ef migrations script
+dotnet ef dbcontext info
+dotnet ef dbcontext scaffold
+dotnet ef database drop
+dotnet ef database update
+    </Description>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <GenerateToolShims>true</GenerateToolShims>
+    <RootNamespace>Microsoft.EntityFrameworkCore.Tools</RootNamespace>
+    <IncludeSource>false</IncludeSource>
+    <EnableApiCheck>false</EnableApiCheck>
+    <NuspecFile>$(MSBuildProjectName).nuspec</NuspecFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\ef\CommandLineUtils\*.cs" />
+    <Compile Include="..\ef\Commands\CommandBase.cs" />
+    <Compile Include="..\ef\Commands\ContextCommandBase.cs" />
+    <Compile Include="..\ef\Commands\DatabaseCommand.cs" />
+    <Compile Include="..\ef\Commands\DbContextCommand.cs" />
+    <Compile Include="..\ef\Commands\EFCommandBase.cs" />
+    <Compile Include="..\ef\Commands\HelpCommandBase.cs" />
+    <Compile Include="..\ef\Commands\MigrationsCommand.cs" />
+    <Compile Include="..\ef\Commands\RootCommand.cs" />
+    <Compile Include="..\ef\AnsiConsole.cs" />
+    <Compile Include="..\ef\AnsiConstants.cs" />
+    <Compile Include="..\ef\AnsiTextWriter.cs" />
+    <Compile Include="..\ef\CommandException.cs" />
+    <Compile Include="..\ef\Json.cs" />
+    <Compile Include="..\ef\Reporter.cs" />
+    <Compile Include="..\ef\Commands\**\*.Configure.cs" />
+    <Compile Include="..\Shared\CodeAnnotations.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ef\ef.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EntityFrameworkCore.targets" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftJsonPackageVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Resources.Designer.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.Designer.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Additional files to be code signed -->
+    <SignedPackageFile Include="tools/netcoreapp2.2/any/tools/netcoreapp2.0/any/ef.dll" Certificate="$(AssemblySigningCertName)" />
+    <SignedPackageFile Include="tools/netcoreapp2.2/any/tools/net461/any/ef.exe" Certificate="$(AssemblySigningCertName)" />
+    <SignedPackageFile Include="tools/netcoreapp2.2/any/tools/net461/win-x86/ef.exe" Certificate="$(AssemblySigningCertName)" />
+
+    <!-- Third-party assemblies should be signed with the 3PartyDual certificate -->
+    <SignedPackageFile Include="tools/netcoreapp2.2/any/Newtonsoft.Json.dll" Certificate="3PartyDual" />
+  </ItemGroup>
+
+  <Target Name="PopulateNuspec" BeforeTargets="GenerateNuspec" DependsOnTargets="Build">
+
+    <PropertyGroup>
+      <!-- Make sure we create a symbols.nupkg. -->
+      <IncludeSymbols>true</IncludeSymbols>
+
+      <NuspecProperties>
+        id=$(PackageId);
+        version=$(PackageVersion);
+        authors=$(Authors);
+        description=$(Description);
+        tags=$(PackageTags.Replace(';', ' '));
+        licenseUrl=$(PackageLicenseUrl);
+        projectUrl=$(PackageProjectUrl);
+        iconUrl=$(PackageIconUrl);
+        repositoryUrl=$(RepositoryUrl);
+        repositoryCommit=$(RepositoryCommit);
+        copyright=$(Copyright);
+        packageType=$(PackageType);
+        AssemblyName=$(AssemblyName);
+        targetFramework=$(TargetFramework);
+
+        SettingsFile=$(_ToolsSettingsFilePath);
+        Output=$(PublishDir)**\*;
+        OutputShims=$(IntermediateOutputPath)shims\**\*;
+        OutputBinary=..\ef\bin\$(Configuration)\netcoreapp2.0\ef.dll;
+        OutputRuntimeConfig=..\ef\bin\$(Configuration)\netcoreapp2.0\ef.runtimeconfig.json;
+        OutputSymbol=..\ef\bin\$(Configuration)\netcoreapp2.0\ef.pdb;
+        OutputExe=..\ef\bin\$(Configuration)\net461\ef.exe;
+        OutputExeSymbol=..\ef\bin\$(Configuration)\net461\ef.pdb;
+        OutputX86Exe=..\ef\bin\x86\$(Configuration)\net461\ef.exe;
+        OutputX86ExeSymbol=..\ef\bin\x86\$(Configuration)\net461\ef.pdb;
+      </NuspecProperties>
+    </PropertyGroup>
+  </Target>
+
+</Project>
