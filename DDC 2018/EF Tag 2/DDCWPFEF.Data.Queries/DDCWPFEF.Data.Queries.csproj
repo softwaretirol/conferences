@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DDCWPFEF.Data.Queries.Contracts\DDCWPFEF.Data.Queries.Contracts.csproj" />
+    <ProjectReference Include="..\DDCWPFEF.Data\DDCWPFEF.Data.csproj" />
+  </ItemGroup>
+
+</Project>
