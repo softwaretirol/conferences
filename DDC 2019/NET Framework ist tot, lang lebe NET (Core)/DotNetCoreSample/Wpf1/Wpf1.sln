@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf1", "Wpf1.csproj", "{1BCA8C79-07A5-4432-A02D-EA3B599D6ACF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp1", "..\WpfApp1\WpfApp1.csproj", "{AC2B170F-CC87-413C-9C2C-417968504D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyLibrary", "..\MyLibrary\MyLibrary.csproj", "{2790058C-EE2A-44D5-98A8-592C20A5CA3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1BCA8C79-07A5-4432-A02D-EA3B599D6ACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BCA8C79-07A5-4432-A02D-EA3B599D6ACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BCA8C79-07A5-4432-A02D-EA3B599D6ACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BCA8C79-07A5-4432-A02D-EA3B599D6ACF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2B170F-CC87-413C-9C2C-417968504D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2B170F-CC87-413C-9C2C-417968504D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2B170F-CC87-413C-9C2C-417968504D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2B170F-CC87-413C-9C2C-417968504D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2790058C-EE2A-44D5-98A8-592C20A5CA3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2790058C-EE2A-44D5-98A8-592C20A5CA3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2790058C-EE2A-44D5-98A8-592C20A5CA3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2790058C-EE2A-44D5-98A8-592C20A5CA3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42F32BE2-0E17-4E40-8DD7-3EC223D086F6}
+	EndGlobalSection
+EndGlobal
