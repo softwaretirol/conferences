@@ -1,0 +1,26 @@
+﻿@page "/"
+@inject CounterService CounterService
+@implements IDisposable
+<h3>Index</h3>
+
+@CounterService.Counter
+<button @onclick="CounterService.Increase">Do it</button>
+
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        CounterService.CounterChanged += OnCounterChanged;
+    }
+
+    private void OnCounterChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        CounterService.CounterChanged -= OnCounterChanged;
+    }
+}

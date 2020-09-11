@@ -1,0 +1,25 @@
+﻿@using DDFWorkshopBlazor.Shared
+@*<h3>App</h3>
+
+    @counter
+
+    <button @onclick="@Increase">Do it!</button>
+
+    @code {
+        private int counter = 0;
+
+        private void Increase()
+        {
+            counter++;
+        }
+
+    }*@
+
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <h1>404 - Tut mir leid... not found</h1>
+    </NotFound>
+</Router>

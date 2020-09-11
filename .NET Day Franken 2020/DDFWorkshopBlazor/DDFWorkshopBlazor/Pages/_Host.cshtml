@@ -1,0 +1,19 @@
+﻿@page "/"
+@using DDFWorkshopBlazor
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*@{
+        string s = "Hallo";
+    }
+
+    @for(int i = 0; i< 10; i++)
+    {
+    <h1>@i Hello World @( i * 2 + 3 / 4 * 0.3) @s</h1>
+    }*@
+
+
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered" />
+</body>
+
+<script src="_framework/blazor.server.js"></script>
