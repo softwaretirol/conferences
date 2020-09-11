@@ -1,4 +1,5 @@
 ﻿using System;
+using DDFWorkshop.UI.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +28,7 @@ namespace DDFWorkshopBlazor
             serviceCollection.AddServerSideBlazor(x => x.DetailedErrors = true);
             serviceCollection.AddRazorPages();
             
-            serviceCollection.AddSingleton<CounterService>();
+            serviceCollection.AddSingleton<ICounterService, ServerSideCounterService>();
 
         }
 

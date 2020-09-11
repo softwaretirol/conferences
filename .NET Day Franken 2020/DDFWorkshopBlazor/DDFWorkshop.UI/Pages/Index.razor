@@ -1,0 +1,31 @@
+﻿@page "/"
+@inject ICounterService CounterService
+@using DDFWorkshop.UI.Contracts
+@implements IDisposable
+<h3>Index</h3>
+
+@CurrentCounter
+<button @onclick="CounterService.Increase">Do it</button>
+
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentCounter = await CounterService.ReadCurrentCounter();
+        CounterService.CounterChanged += OnCounterChanged;
+    }
+
+    public int CurrentCounter { get; set; }
+
+    private async void OnCounterChanged()
+    {
+        CurrentCounter = await CounterService.ReadCurrentCounter();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        CounterService.CounterChanged -= OnCounterChanged;
+    }
+}

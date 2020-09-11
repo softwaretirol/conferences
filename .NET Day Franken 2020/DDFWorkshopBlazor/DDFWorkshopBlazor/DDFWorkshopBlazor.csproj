@@ -5,9 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <ProjectReference Include="..\DDFWorkshop.UI\DDFWorkshop.UI.csproj" />
   </ItemGroup>
 
 </Project>

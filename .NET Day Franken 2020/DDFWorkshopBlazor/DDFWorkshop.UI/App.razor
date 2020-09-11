@@ -1,5 +1,4 @@
-﻿@using DDFWorkshopBlazor.Shared
-@*<h3>App</h3>
+﻿@*<h3>App</h3>
 
     @counter
 
@@ -15,7 +14,7 @@
 
     }*@
 
-<Router AppAssembly="@typeof(Program).Assembly">
+<Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="typeof(MainLayout)" />
     </Found>
