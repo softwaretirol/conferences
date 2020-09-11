@@ -1,4 +1,7 @@
 ﻿@using DDFWorkshopBlazor.Pages
+@using Microsoft.JSInterop
+@inject IJSRuntime JsRuntime
+
 <tr>
     <td>@Item.Id</td>
     <td>@Item.CreateDate</td>
@@ -17,7 +20,7 @@
 
     private async Task Delete()
     {
+        await JsRuntime.InvokeVoidAsync("deleteItem", Item.Id);
         await DeleteRequest.InvokeAsync(null);
-
     }
 }
