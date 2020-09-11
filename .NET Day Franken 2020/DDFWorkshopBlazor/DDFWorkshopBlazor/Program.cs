@@ -24,7 +24,7 @@ namespace DDFWorkshopBlazor
     {
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddServerSideBlazor();
+            serviceCollection.AddServerSideBlazor(x => x.DetailedErrors = true);
             serviceCollection.AddRazorPages();
             
             serviceCollection.AddSingleton<CounterService>();

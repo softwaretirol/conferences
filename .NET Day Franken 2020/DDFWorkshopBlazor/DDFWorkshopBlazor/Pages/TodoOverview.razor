@@ -1,0 +1,50 @@
+﻿@page "/TodoList"
+
+@if (Items != null)
+{
+    <table>
+        @foreach (var item in Items.Skip(CurrentPage * PageSize).Take(PageSize))
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CreateDate</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </table>
+    @if (CurrentPage < Items.Count / PageSize -1)
+    {
+        <button @onclick="@(() => CurrentPage++)">Next Page</button>
+    }
+}
+else
+{
+    <h3>Loading ...</h3>
+}
+
+
+@code {
+    public List<TodoItem> Items { get; private set; }
+
+    public const int PageSize = 10;
+    public int CurrentPage { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(4000);
+        Items = Enumerable.Range(0, 100).Select(x => new TodoItem()
+        {
+            CreateDate = DateTime.Now,
+            Description = "Juhu",
+            Id = x
+        }).ToList();
+    }
+
+    public class TodoItem
+    {
+        public int Id { get; set; }
+        public DateTime CreateDate { get; set; }
+        public string Description { get; set; }
+    }
+
+}
