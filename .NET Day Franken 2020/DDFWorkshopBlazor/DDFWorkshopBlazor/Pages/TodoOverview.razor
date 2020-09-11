@@ -2,20 +2,25 @@
 
 @if (Items != null)
 {
-    <table>
-        @foreach (var item in Items.Skip(CurrentPage * PageSize).Take(PageSize))
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.CreateDate</td>
-                <td>@item.Description</td>
-            </tr>
-        }
-    </table>
-    @if (CurrentPage < Items.Count / PageSize -1)
-    {
-        <button @onclick="@(() => CurrentPage++)">Next Page</button>
-    }
+    <Expander @bind-IsExpanded="@IsExpanded">
+        <ButtonText>
+            <img />
+            Text
+            <img />
+        </ButtonText>
+        <ChildContent>
+            <table>
+                @foreach (var item in Items.Skip(CurrentPage * PageSize).Take(PageSize))
+                {
+                    <TodoItemComponent DeleteRequest="@(() => Items.Remove(item))" Item="item" />
+                }
+            </table>
+            @if (CurrentPage < Items.Count / PageSize - 1)
+            {
+                <button @onclick="@(() => CurrentPage++)">Next Page</button>
+            }
+        </ChildContent>
+    </Expander>
 }
 else
 {
@@ -24,6 +29,8 @@ else
 
 
 @code {
+    public bool IsExpanded { get; set; } = false;
+
     public List<TodoItem> Items { get; private set; }
 
     public const int PageSize = 10;
@@ -31,7 +38,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.Delay(4000);
+        await Task.Delay(1000);
         Items = Enumerable.Range(0, 100).Select(x => new TodoItem()
         {
             CreateDate = DateTime.Now,

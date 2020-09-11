@@ -1,0 +1,23 @@
+﻿@using DDFWorkshopBlazor.Pages
+<tr>
+    <td>@Item.Id</td>
+    <td>@Item.CreateDate</td>
+    <td>@Item.Description</td>
+    <td>
+        <button @onclick="Delete">Delete me</button>
+    </td>
+</tr>
+@code
+{
+    [Parameter]
+    public TodoOverview.TodoItem Item { get; set; }
+
+    [Parameter]
+    public EventCallback DeleteRequest { get; set; }
+
+    private async Task Delete()
+    {
+        await DeleteRequest.InvokeAsync(null);
+
+    }
+}
