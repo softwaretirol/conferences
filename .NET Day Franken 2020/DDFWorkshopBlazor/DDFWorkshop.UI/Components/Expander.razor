@@ -1,0 +1,32 @@
+﻿<button @onclick="@ToggleIsExpanded">@ButtonText</button>
+
+@*@if (isExpanded)
+{
+    @ChildContent
+}*@
+
+<div style="@(IsExpanded ? "" : "display:none")">
+    @ChildContent
+</div>
+
+
+@code
+{
+    [Parameter]
+    public bool IsExpanded { get; set; } = true;
+
+    [Parameter]
+    public EventCallback<bool> IsExpandedChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public RenderFragment ButtonText { get; set; }
+
+    private async Task ToggleIsExpanded()
+    {
+        IsExpanded = !IsExpanded;
+        await IsExpandedChanged.InvokeAsync(IsExpanded);
+    }
+}
