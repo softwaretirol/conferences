@@ -1,7 +1,82 @@
 ﻿@page "/"
+@page "/asd"
+@using WDCWS.Data
+@inject IPersonQuery PersonQuery
 
-<h1>Hello, world!</h1>
+<p>@counter</p>
+<button @onclick="IncreaseCounter">Increase</button>
 
-Welcome to your new app.
+@if (Persons != null)
+{
+    <ul>
+        @foreach (var person in Persons)
+        {
+            <li>
+                <NavLink Href="@("EditPerson/" + person.Id)">
+                    @person.Vorname @person.Nachname
+                </NavLink>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+                (<a href="" @onclick="@(() => Persons.Remove(person))">Delete</a>)
+            </li>
+        }
+    </ul>
+
+    @if (CurrentPage > 0)
+    {
+        <button @onclick="PreviousPage">Previous Page</button>
+    }
+
+    <button @onclick="NextPage">Next Page</button>
+}
+else
+{
+    <p>
+        Lade Daten ...
+    </p>
+}
+
+<button @onclick="AddPerson">Add Person</button>
+
+@code
+{
+    private int counter = 10;
+    private int PageSize = 7;
+    public int CurrentPage { get; set; }
+
+    public List<Person> Persons { get; set; }
+
+    public void IncreaseCounter()
+    {
+        counter++;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+        Persons = new List<Person>(await PersonQuery.GetAll(CurrentPage, PageSize));
+    }
+
+    private void AddPerson()
+    {
+        Persons.Add(PersonQuery.Store(new Person
+        {
+            Vorname = "Maxi",
+            Nachname = "Mustermann"
+        }));
+    }
+
+    private async Task NextPage()
+    {
+        CurrentPage++;
+        await Refresh();
+    }
+    private async Task PreviousPage()
+    {
+        CurrentPage--;
+        await Refresh();
+    }
+}

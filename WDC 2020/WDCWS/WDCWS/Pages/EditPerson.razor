@@ -1,0 +1,27 @@
+﻿@page "/EditPerson/{Id:int}"
+@using WDCWS.Data
+@inject IPersonQuery PersonQuery
+
+@if (PersonToEdit == null)
+{
+    <p>Lade Daten ...</p>
+}
+else
+{
+    @PersonToEdit.Id
+    @PersonToEdit.Vorname
+    @PersonToEdit.Nachname
+}
+
+@code
+{
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        PersonToEdit = await PersonQuery.Get(Id);
+    }
+
+    public Person PersonToEdit { get; set; }
+}
