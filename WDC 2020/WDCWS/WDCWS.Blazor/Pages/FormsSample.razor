@@ -1,0 +1,67 @@
+﻿@page "/FormsSample"
+@using System.ComponentModel.DataAnnotations
+
+
+<input type="text" 
+       placeholder="Der Suchbegriff..."
+       @bind="SearchText"
+       @bind:event="oninput"/>
+@SearchText
+
+
+<EditForm EditContext="@EditContext" OnValidSubmit="SaveChanges">
+    <DataAnnotationsValidator />
+
+    <ValidationSummary />
+
+    <ValidationMessage For="() => Data.Vorname" />
+    <InputText @bind-Value="@Data.Vorname"  />
+
+    <ValidationMessage For="() => Data.Nachname" />
+    <InputText @bind-Value="@Data.Nachname" />
+
+    <input type="submit" value="Save Changes" />
+</EditForm>
+
+@*14:40*@
+
+@code 
+{
+    public string SearchText { get; set; }
+
+    public EditContext EditContext { get; set; }
+    public DataToEdit Data { get; set; } = new DataToEdit();
+
+    protected override void OnInitialized()
+    {
+        EditContext = new EditContext(Data);
+        EditContext.OnValidationRequested += OnValidationRequested;
+    }
+
+    private void OnValidationRequested(object sender, ValidationRequestedEventArgs e)
+    {
+
+    }
+
+    public class DataToEdit
+    {
+        [Required, MinLength(3), MaxLength(100)]
+        public string Vorname { get; set; }
+
+        [Required, MinLength(3), MaxLength(100) /*, MyValidationRule*/]
+        public string Nachname { get; set; }
+    }
+
+    public class MyValidationRule : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            return base.IsValid(value, validationContext);
+        }
+    }
+
+    private Task SaveChanges()
+    {
+        return Task.CompletedTask;
+    }
+}

@@ -110,11 +110,11 @@ app {
 }
 
 .invalid {
-    outline: 1px solid red;
+    outline: 3px solid red;
 }
 
 .validation-message {
-    color: red;
+    color: orange;
 }
 
 #blazor-error-ui {

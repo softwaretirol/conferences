@@ -1,0 +1,41 @@
+﻿
+<div @onclick="@(ToggleExpandedState)">
+    @Header("Das ist das Argument 42")
+</div>
+
+<p style="@(IsExpanded ? "" : "display:none;")">
+    @Content
+</p>
+
+@*<p class="@(isExpanded ? "" : "hidden")">
+    Das ist der Inhalt.
+</p>*@
+
+@*@if (isExpanded)
+    {
+        <p>
+            Das ist der Inhalt.
+        </p>
+    }*@
+
+@code
+{
+    [Parameter]
+    public bool IsExpanded { get; set; } = true;
+
+    [Parameter]
+    public EventCallback<bool> IsExpandedChanged { get; set; }
+
+    [Parameter]
+    public RenderFragment<string> Header { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+    private async Task ToggleExpandedState()
+    {
+        IsExpanded = !IsExpanded;
+        await IsExpandedChanged.InvokeAsync(IsExpanded);
+    }
+
+}

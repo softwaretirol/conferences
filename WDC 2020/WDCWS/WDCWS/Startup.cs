@@ -26,9 +26,6 @@ namespace WDCWS
         {
             services.AddRazorPages(); // (MVC) .cshtml Support
             services.AddServerSideBlazor(); // Blazor Server Side Support
-            services.AddSingleton<WeatherForecastService>(); // Nur für dieses Template notwendig
-
-
 
             services.AddTransient<IPersonQuery, PersonServerSideQuery>();  // Für jede Anfrage / Komponente eine eigene Instanz
             //services.AddScoped<IPersonQuery, PersonServerSideQuery>();     // Für jede Blazor "Sitzung"

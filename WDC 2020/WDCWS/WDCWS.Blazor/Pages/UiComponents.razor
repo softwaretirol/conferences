@@ -1,0 +1,48 @@
+﻿@page "/UIComponents"
+
+<h2>Expander</h2>
+
+<Expander @bind-IsExpanded="@Expander1">
+    <Header>
+        1. Expander
+    </Header>
+    <Content>
+        Hallo Welt
+    </Content>
+</Expander>
+
+<Expander @ref="expander" @bind-IsExpanded="@Expander2">
+    <Header>
+        2. Expander
+    </Header>
+    <Content>
+        Hallo Welt
+
+        <ProgressBar />
+        <ProgressBar />
+        <ProgressBar />
+        <ProgressBar />
+
+        Hallo Welt
+    </Content>
+</Expander>
+
+<h3>@Expander1</h3>
+<h3>@Expander2</h3>
+
+<h2>ProgressBar</h2>
+<ProgressBar />
+
+<button @onclick="ExpandAll">Expand all expander</button>
+
+@code 
+{
+    private Expander expander;
+    private bool Expander1 { get; set; } = false;
+    private bool Expander2 { get; set; } = true;
+
+    private void ExpandAll()
+    {
+        Expander1 = Expander2 = true;
+    }
+}
