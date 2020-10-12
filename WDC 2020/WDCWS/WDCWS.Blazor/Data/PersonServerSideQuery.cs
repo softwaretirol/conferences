@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace WDCWS.Data
@@ -9,16 +10,20 @@ namespace WDCWS.Data
         {
             // DB
             await Task.Delay(2000);
-            return Enumerable
-                .Range(0, 100)
-                .Skip(page * pageSize)
-                .Take(pageSize)
+            var watch = Stopwatch.StartNew();
+            var persons = Enumerable
+                .Range(0, 100_000)
+                //.Skip(page * pageSize)
+                //.Take(pageSize)
                 .Select(x => new Person
                 {
                     Id = x,
                     Vorname = "Christian" + x,
                     Nachname = "Giesswein" + x
                 }).ToArray();
+            watch.Stop();
+            var w = watch.Elapsed.ToString();
+            return persons;
         }
 
         public Person Store(Person person)

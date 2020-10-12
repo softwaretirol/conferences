@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WDCWS", "WDCWS\WDCWS.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDCWS.Blazor", "WDCWS.Blazor\WDCWS.Blazor.csproj", "{1F68DD0C-B35F-468C-B4FE-1F669E700EB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDCWS.WASM", "WDCWS.WASM\WDCWS.WASM.csproj", "{EF418E1B-E9F7-4AD3-BE3D-679176F70188}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1F68DD0C-B35F-468C-B4FE-1F669E700EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F68DD0C-B35F-468C-B4FE-1F669E700EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F68DD0C-B35F-468C-B4FE-1F669E700EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF418E1B-E9F7-4AD3-BE3D-679176F70188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF418E1B-E9F7-4AD3-BE3D-679176F70188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF418E1B-E9F7-4AD3-BE3D-679176F70188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF418E1B-E9F7-4AD3-BE3D-679176F70188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,12 @@
 ﻿@page "/"
 @page "/asd"
 @using WDCWS.Data
+@using Microsoft.JSInterop
 @inject IPersonQuery PersonQuery
+@inject IJSRuntime JsRuntime
+
+
+<button @onclick="InvokeJs">Invoke Javascript</button>
 
 <p>@counter</p>
 <button @onclick="IncreaseCounter">Increase</button>
@@ -76,5 +81,11 @@ else
     {
         CurrentPage--;
         await Refresh();
+    }
+
+    private async Task InvokeJs()
+    {
+        var instance = DotNetObjectReference.Create(this);
+        await JsRuntime.InvokeVoidAsync("myCustomObject.InvokeMethod", instance);
     }
 }
