@@ -1,5 +1,7 @@
 ﻿@page "/PersonList"
 @inject DataSource DataSource
+@inject NavigationManager NavigationManager
+@implements IDisposable
 @using ServerSideSample.Data
 
 <table class="table table-sm">
@@ -21,6 +23,12 @@
                         @onclick="@(() => DataSource.Remove(person.Id))">
                     Löschen
                 </button>
+
+                <NavLink Href="@("EditPerson/" + person.Id)">
+                    <button class="btn btn-warning">Bearbeiten (NavLink)</button>
+                </NavLink>
+
+                <button class="btn btn-warning" @onclick="@(() => NavigationManager.NavigateTo("EditPerson/" + person.Id))">Bearbeiten (NavigationManager)</button>
             </td>
         </tr>
     }
@@ -45,4 +53,19 @@ else
 {
     private int currentPage = 0;
     private int pageSize = 10;
+
+    protected override void OnInitialized()
+    {
+        DataSource.DataHasChanged += OnDataHasChanged;
+    }
+
+    private void OnDataHasChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        DataSource.DataHasChanged -= OnDataHasChanged;
+    }
 }

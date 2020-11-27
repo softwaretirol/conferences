@@ -1,0 +1,26 @@
+﻿
+<h3 @onclick="@(() => IsExpanded = !IsExpanded)" class="@("expanderLevel" + Level)">
+    @Header
+</h3>
+
+@if (IsExpanded)
+{
+    <p>
+        @Content
+    </p>
+}
+
+
+@code
+{
+    public bool IsExpanded { get; set; }
+
+    [Parameter]
+    public int Level { get; set; }
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+}

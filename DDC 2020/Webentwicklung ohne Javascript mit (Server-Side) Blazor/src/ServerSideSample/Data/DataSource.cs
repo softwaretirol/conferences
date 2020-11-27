@@ -17,6 +17,12 @@ namespace ServerSideSample.Data
             })
             .ToList();
 
+        public async Task<Person> Get(int id)
+        {
+            await Task.Delay(2000);
+            return allPersons.FirstOrDefault(x => x.Id == id);
+        }
+
         public IEnumerable<Person> GetAll(int skip, int take)
         {
             return allPersons
@@ -24,9 +30,23 @@ namespace ServerSideSample.Data
                 .Take(take);
         }
 
-        public void Remove( int personId)
+        public event Action DataHasChanged;
+        public void Remove(int personId)
         {
             allPersons.Remove(allPersons.FirstOrDefault(x => x.Id == personId));
+            DataHasChanged?.Invoke();
+        }
+
+        public async Task Save(Person person)
+        {
+            await Task.Delay(2000);
+            var personToChange = allPersons.FirstOrDefault(x => x.Id == person.Id);
+            if (personToChange != null)
+            {
+                personToChange.Vorname = person.Vorname;
+                personToChange.Nachname = person.Nachname;
+                DataHasChanged?.Invoke();
+            }
         }
     }
 }

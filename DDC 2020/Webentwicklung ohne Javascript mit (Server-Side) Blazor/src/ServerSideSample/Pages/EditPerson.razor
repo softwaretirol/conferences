@@ -1,0 +1,47 @@
+﻿@page "/EditPerson/{PersonId:int}"
+@using ServerSideSample.Data
+@inject DataSource DataSource
+@inject NavigationManager NavigationManager
+<h1>Bearbeite Person mit ID: @PersonId</h1>
+
+@if (Person == null)
+{
+    <p>Lade Daten ...</p>
+}
+else
+{
+    // ASP.NET Core Blazor - Validation mit DataAnnotations
+
+    <EditForm Model="Person" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+
+        <ValidationSummary />
+
+        <ValidationMessage For="@(() => Person.Vorname)" />
+        <InputText @bind-Value="@Person.Vorname" />
+
+        <ValidationMessage For="@(() => Person.Vorname)" />
+        <InputText @bind-Value="@Person.Nachname" />
+
+        <button type="submit" class="btn btn-primary">Speichere Änderung</button>
+    </EditForm>
+}
+
+@code
+{
+    [Parameter]
+    public int PersonId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Person = await DataSource.Get(PersonId);
+    }
+
+    public Person Person { get; set; }
+
+    private async Task Save()
+    {
+        await DataSource.Save(Person);
+        NavigationManager.NavigateTo("PersonList");
+    }
+}
