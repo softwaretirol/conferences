@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerSideSample", "ServerSideSample\ServerSideSample.csproj", "{BA345CA9-5F28-4019-BD35-DD054BC5CA5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWS.Lib", "BlazorWS.Lib\BlazorWS.Lib.csproj", "{3096C38D-7739-42C3-AC45-69A19A82166B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientSideSample", "ClientSideSample\ClientSideSample.csproj", "{0F0B8B08-DF32-461B-B2E5-D28FF21F818A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{BA345CA9-5F28-4019-BD35-DD054BC5CA5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA345CA9-5F28-4019-BD35-DD054BC5CA5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA345CA9-5F28-4019-BD35-DD054BC5CA5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3096C38D-7739-42C3-AC45-69A19A82166B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3096C38D-7739-42C3-AC45-69A19A82166B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3096C38D-7739-42C3-AC45-69A19A82166B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3096C38D-7739-42C3-AC45-69A19A82166B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F0B8B08-DF32-461B-B2E5-D28FF21F818A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F0B8B08-DF32-461B-B2E5-D28FF21F818A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F0B8B08-DF32-461B-B2E5-D28FF21F818A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F0B8B08-DF32-461B-B2E5-D28FF21F818A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
