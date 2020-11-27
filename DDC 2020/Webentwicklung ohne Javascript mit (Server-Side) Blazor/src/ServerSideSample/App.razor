@@ -1,0 +1,33 @@
+﻿
+<h3>Hello World from Blazor ;-)</h3>
+
+@*<button @onclick="IncreaseCounter">Increase Counter (Counter=@Counter)</button>*@
+
+@* .NET Core - Async & Await *@
+
+<button @onclick="@(() => Counter++)">Increase Counter 123 (Counter=@Counter)</button>
+<button @onclick="@(() => IncreaseCounter(-1))">- (Counter=@Counter)</button>
+<button @onclick="@(() => IncreaseCounter(+1))">+ (Counter=@Counter)</button>
+<button @onclick="@(() => IncreaseCounter(DateTime.Now.Second))">Increase Counter (Counter=@Counter)</button>
+
+
+@code
+{
+
+    public int Counter { get; set; }
+
+    public async Task IncreaseCounter(int? increaseValue = null)
+    {
+        await Task.Delay(1000);
+
+        if (increaseValue.HasValue)
+        {
+            Counter += increaseValue.Value;
+        }
+        else
+        {
+            Counter++;
+        }
+    }
+
+}

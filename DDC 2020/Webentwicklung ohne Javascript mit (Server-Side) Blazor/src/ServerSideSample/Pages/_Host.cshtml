@@ -1,0 +1,31 @@
+﻿@page "/"
+@using System.Diagnostics
+@using ServerSideSample
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@*<h1>Hello World from cshtml</h1>
+<p>Heute ist der @DateTime.Today.ToShortDateString()</p>
+@{
+    int x = 10;
+    int y = 20;
+}
+<p>
+    @x
+</p>
+@foreach (var proc in Process.GetProcesses())
+{
+    int z = 20;
+    <p>
+        asdasd
+        @proc.ProcessName
+    </p>
+}*@
+
+<!DOCTYPE html> <!-- HTML5 -->
+<head>
+    <title>Unsere BLAZOR Anwendung</title>
+</head>
+<body>
+    <component type="typeof(App)" render-mode="ServerPrerendered"/>
+    <script src="_framework/blazor.server.js"></script>
+</body>
