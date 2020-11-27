@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ServerSideSample.Data;
 
 namespace ServerSideSample
 {
@@ -33,6 +34,9 @@ namespace ServerSideSample
             // serviceCollection.AddTransient<IConfiguration, Configuration>(); <-- Jede Anfrage baut eine neue Instanz
             // serviceCollection.AddScoped<>(); <-- "Scope" / Bereich
             // serviceCollection.AddSingleton<>(); <-- Es gibt nur max. 1 Instanz im Container
+
+            serviceCollection.AddSingleton<DataSource>();
+
             serviceCollection.AddRazorPages();
             serviceCollection.AddServerSideBlazor();
         }

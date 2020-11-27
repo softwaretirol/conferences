@@ -1,13 +1,5 @@
-﻿@using Microsoft.VisualBasic
+﻿@inherits LayoutComponentBase
 
-<nav class="menu">
-    <a href="/">Index</a> | <a href="/Counter">Counter</a>
-</nav>
-
-
-
-<footer>
-    @DateTime.Today.Year
-</footer>
-
-
+<Navigation/>
+@Body
+<FooterComponent/>

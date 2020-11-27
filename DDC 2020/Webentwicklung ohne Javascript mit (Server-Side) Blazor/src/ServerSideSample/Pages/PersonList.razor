@@ -1,0 +1,48 @@
+﻿@page "/PersonList"
+@inject DataSource DataSource
+@using ServerSideSample.Data
+
+<table class="table table-sm">
+    <tr>
+        <th>Id</th>
+        <th>Vorname</th>
+        <th>Nachname</th>
+        <th>#</th>
+    </tr>
+    @foreach (var person in DataSource.GetAll(currentPage * pageSize, pageSize))
+    {
+        <tr style="background: @(person.Id %2 == 0 ? "green" : "blue")"
+            class="@(person.Id%2 == 0 ? "gerade" : "ungerade")">
+            <td>@person.Id</td>
+            <td>@person.Vorname</td>
+            <td>@person.Nachname</td>
+            <td>
+                <button class="btn btn-danger"
+                        @onclick="@(() => DataSource.Remove(person.Id))">
+                    Löschen
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+
+@if (currentPage > 0)
+{
+    <button @onclick="@(() => currentPage--)">Previous Page</button>
+}
+else
+{
+    <button @onclick="@(() => currentPage--)" disabled>Previous Page</button>
+}
+
+@if (currentPage < 9)
+{
+    <button @onclick="@(() => currentPage++)">Next Page</button>
+}
+
+@code
+{
+    private int currentPage = 0;
+    private int pageSize = 10;
+}
