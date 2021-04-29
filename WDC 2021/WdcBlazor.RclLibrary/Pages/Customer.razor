@@ -1,0 +1,34 @@
+﻿@page "/customer"
+@using System.Diagnostics
+@using System.IO
+<h3>Customer</h3>
+
+
+<LoadingComponent IsLoading="@(allCustomers == null)">
+    <Content>
+        <ul>
+            @foreach (var customer in allCustomers)
+            {
+                <li>@customer</li>
+            }
+        </ul>
+    </Content>
+</LoadingComponent>
+
+<a href="/">Index</a>
+
+@code 
+{
+    private List<string> allCustomers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(3000);
+
+        allCustomers = new List<string>
+        {
+            "Maxi",
+            "Musti"
+        };
+    }
+}

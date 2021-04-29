@@ -1,0 +1,33 @@
+﻿
+@if (IsLoading)
+{
+    @*<p>@LoadingMessage</p>*@
+
+    @if (LoadingContent != null)
+    {
+        @LoadingContent
+    }
+    else
+    {
+        <p>Lade Daten,..</p>
+    }
+}
+else
+{
+    @Content
+}
+
+@code
+{
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    //[Parameter]
+    //public string LoadingMessage { get; set; } = "Lade Daten,...";
+
+    [Parameter]
+    public RenderFragment LoadingContent { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+}

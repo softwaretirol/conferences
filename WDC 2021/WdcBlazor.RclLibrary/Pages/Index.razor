@@ -1,0 +1,56 @@
+﻿@page "/"
+
+<h1>
+    Hallo Welt
+</h1>
+
+<p>
+    @DateTime.Now + 1
+
+@( 1 + 2 + 3 + DateTime.Now.Year )
+
+@{
+    int i2 = 10;
+    i2 = 11;
+    i2++;
+<p>
+    hallo @i2
+</p>
+}
+</p>
+
+<button @onclick="OnClick">This is an ugly button (@count)...</button>
+
+<table>
+    @for (int i = 0; i < count; i++)
+    {
+        <tr>
+            <td>@Calculate(i, i)</td>
+            <td>Spalte 2</td>
+            <td>Spalte 3</td>
+        </tr>
+    }
+</table>
+
+
+
+@code
+{
+    private void OnClick()
+    {
+        count++;
+    }
+
+    private int count = 0;
+    public int Calculate(int x, int y)
+    {
+        return x + y;
+    }
+
+    private class Abc
+    {
+
+    }
+
+    public delegate void MyDelegate();
+}

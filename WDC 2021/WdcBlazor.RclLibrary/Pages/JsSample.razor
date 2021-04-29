@@ -1,0 +1,29 @@
+﻿@page "/Javascript"
+@using Microsoft.JSInterop
+@inject IJSRuntime jsRuntime
+
+<h3>JsSample</h3>
+
+<button @onclick="ShowAlert">Show alert();</button>
+<button @onclick="InvokeDoIt">Show alert();</button>
+
+@code 
+{
+
+    private async Task ShowAlert()
+    {
+        await jsRuntime.InvokeVoidAsync("alert", "Hello from Blazor :-)");
+    }
+
+    private async Task InvokeDoIt()
+    {
+        var dotnetRef = DotNetObjectReference.Create(this);
+        await jsRuntime.InvokeVoidAsync("doIt", dotnetRef);
+    }
+
+    [JSInvokable]
+    public void Test()
+    {
+
+    }
+}
