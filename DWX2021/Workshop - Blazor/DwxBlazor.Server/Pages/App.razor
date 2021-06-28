@@ -1,0 +1,16 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+
+<h3>Hello @i World @Xyz</h3>
+<button @onclick="HandleClick">Click me :-)</button>
+
+@code 
+{
+    int i = 42;
+    public int Xyz { get; set; } = 1;
+
+    private void HandleClick()
+    {
+        i++;
+        Xyz++;
+    }
+}
