@@ -1,0 +1,57 @@
+﻿@using System.Diagnostics
+@if (Xyz % 2 == 0)
+{
+    @for (int counter = 0; counter < Xyz; counter++)
+    {
+        <ClickComponent Counter="10" />
+    }
+}
+
+<ClickComponent Counter="100" />
+<ClickComponent />
+
+
+<h3>Hello @i World @Xyz</h3>
+<button @onclick="HandleClick">Click me :-)</button>
+
+
+@i + @Xyz
+@Xyz
+
+@(i + Xyz)
+
+@{
+    int summe = i + Xyz;
+    string schöneSummer = summe.ToString() + " €";
+    <text>@summe</text>
+}
+
+@summe
+@schöneSummer
+
+
+
+
+@code
+{
+    int i = 42;
+    public int Xyz { get; set; } = 1;
+
+    private void HandleClick()
+    {
+        Console.WriteLine("Hello Console");
+        Debug.WriteLine("Halllo");
+        i++;
+        Xyz++;
+    }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+}

@@ -1,4 +1,6 @@
 ﻿using System;
+using DwxBlazor.RazorLib.Contracts;
+using DwxBlazor.Server.Implementations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +23,12 @@ public class Startup
 {
     public void ConfigureServices(IServiceCollection serviceCollection)
     {
+        //serviceCollection.AddTransient<>();
+        //serviceCollection.AddScoped<>()
+        //serviceCollection.AddSingleton<>()
+
+        serviceCollection.AddTransient<ICustomerService, DemoCustomerService>();
+
         serviceCollection.AddServerSideBlazor();
         serviceCollection.AddRazorPages();
     }

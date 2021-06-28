@@ -1,0 +1,38 @@
+﻿@page "/Customers"
+@using DwxBlazor.RazorLib.Contracts
+@using DwxBlazor.RazorLib.Models
+@inject ICustomerService customerService
+
+
+<LoadingComponent IsLoading="@(allCustomers == null)">
+    <LoadingContent>
+        <h3>Lade alle Kunden, bitte warten,....</h3>
+    </LoadingContent>
+    <ChildContent>
+        <table>
+            @foreach (var item in allCustomers)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.Location</td>
+                    <td>@item.WebAddress</td>
+                    <td>
+                        <a href="@("EditCustomer/" + item.Id)">Edit</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </ChildContent>
+</LoadingComponent>
+
+
+@code 
+{
+    protected override async Task OnInitializedAsync()
+    {
+        allCustomers = await customerService.GetAll();
+    }
+
+    private IEnumerable<Customer> allCustomers;
+}

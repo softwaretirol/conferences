@@ -1,0 +1,11 @@
+﻿@*style="@(Counter % 2 == 0 ? "background:green" : "background:red")"*@
+
+<button @onclick="@(() => Counter++)" 
+        class="@(Counter % 2 == 0 ? "even" : "odd")"
+        >@Counter</button>
+
+@code 
+{
+    [Parameter]
+    public int Counter { get; set; }
+}

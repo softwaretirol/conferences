@@ -1,0 +1,38 @@
+﻿@using System.Timers
+@inherits LayoutComponentBase
+@implements IDisposable
+
+<nav>
+    <Navigation/>
+    @Date
+</nav>
+
+<div>
+    @Body
+</div>
+
+@code
+{
+    public DateTime Date { get; private set; }
+    protected override void OnInitialized()
+    {
+        timer = new Timer();
+        timer.Interval = 1_000;
+        timer.Elapsed += OnElapsed;
+        timer.Start();
+    }
+
+    public void Dispose()
+    {
+        timer.Stop();
+        timer.Dispose();
+    }
+
+    private void OnElapsed(object sender, ElapsedEventArgs e)
+    {
+        Date = DateTime.Now;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private Timer timer;
+}

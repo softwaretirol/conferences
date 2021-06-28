@@ -1,0 +1,69 @@
+﻿@page "/EditCustomer/{CustomerId:int}"
+@using Microsoft.AspNetCore.Components.Forms
+@using DwxBlazor.RazorLib.Contracts
+@using DwxBlazor.RazorLib.Models
+@using Microsoft.JSInterop
+@inject ICustomerService customerService
+@inject IJSRuntime jsRuntime
+
+<h3>Edit @CustomerId</h3>
+
+<LoadingComponent IsLoading="@(Customer == null)">
+    <input type="text" placeholder="Company Name" @bind="@Customer.CompanyName" @bind:event="oninput" />
+    <input type="text" placeholder="Location" @bind="@Customer.Location" />
+    <input type="text" placeholder="Web Address" @bind-value="@Customer.WebAddress" />
+
+    <p>
+        @Customer.CompanyName
+    </p>
+    <p>
+        @Customer.Location
+    </p>
+    <p>
+        @Customer.WebAddress
+    </p>
+
+    <EditForm Model="Customer" OnValidSubmit="Save">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        @*<InputText ValueExpression="@(() => Customer.CompanyName)"/>*@
+        <ValidationMessage For="() => Customer.CompanyName" />
+        <InputText @bind-Value="Customer.CompanyName" />
+
+        <ValidationMessage For="() => Customer.Location" />
+        <InputText @bind-Value="Customer.Location" />
+
+        <ValidationMessage For="() => Customer.WebAddress" />
+        <InputText @bind-Value="Customer.WebAddress" />
+        <input type="submit" value="Save changes..." />
+    </EditForm>
+
+</LoadingComponent>
+
+@code
+{
+    [Parameter]
+    public int CustomerId { get; set; }
+
+    //public string CompanyName { get; set; }
+    //public string Location { get; set; }
+    //public string WebAddress { get; set; }
+
+    public Customer Customer { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Customer = await customerService.Get(CustomerId);
+
+        await jsRuntime.InvokeVoidAsync("alert", "Bin fertig...");
+
+        //CompanyName = customer.CompanyName;
+        //Location = customer.Location;
+        //WebAddress = customer.WebAddress;
+    }
+
+    private async Task Save()
+    {
+        //await customerService.Save(Customer);
+    }
+}
