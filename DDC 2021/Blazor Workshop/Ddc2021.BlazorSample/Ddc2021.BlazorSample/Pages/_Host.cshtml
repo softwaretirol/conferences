@@ -1,0 +1,22 @@
+﻿@page
+@using Ddc2021.RazorLibrary
+@model Ddc2021.BlazorSample.Pages._HostModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+}
+
+<html>
+<head>
+   @* <link rel="stylesheet"
+          href="_content/Ddc2021.RazorLibrary/Ddc2021.RazorLibrary.bundle.scp.css"/>*@
+    <link rel="stylesheet" 
+          href="Ddc2021.BlazorSample.styles.css"/>
+</head>
+<body>
+    <app>
+        <component type="typeof(App)" 
+                   render-mode="Server"/>
+    </app>
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>

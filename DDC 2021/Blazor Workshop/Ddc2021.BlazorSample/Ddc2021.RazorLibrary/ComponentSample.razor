@@ -1,0 +1,35 @@
+﻿@page "/ComponentSample"
+
+<h3>Razor Library</h3>
+
+<Component1/>
+
+<h3>Other Samples</h3>
+
+<CounterComponent Counter="@counter"
+                  CounterChanged="(c) => this.counter = c"
+                  />
+
+<CounterComponent @bind-Counter="@counter"/>
+
+
+<h3>ComponentSample @counter</h3>
+
+<Link LinkTitle="Mein 1. Link" 
+      LinkTarget="https://www.google.at"/>
+
+<Link LinkTitle="Mein 2. Link" 
+      LinkTarget="https://www.google.at"/>
+
+<Link LinkTitle="Mein 3. Link"
+      LinkTarget="https://www.google.at"/>
+
+<Link LinkTitle="Mein 4. Link" 
+      LinkTarget="https://www.google.at"/>
+      
+<LifeCycleComponent/>
+
+@code 
+{
+    private int counter = 42;
+}

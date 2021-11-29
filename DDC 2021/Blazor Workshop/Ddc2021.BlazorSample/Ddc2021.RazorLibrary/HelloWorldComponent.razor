@@ -1,0 +1,36 @@
+﻿@page "/Hallo"
+@page "/Hallo1"
+@page "/Hallo2"
+@page "/Hallo3"
+@page "/"
+
+<button @onclick="@(() => counter++)">Increase counter (@counter)</button>
+<button @onclick="@(() => counter--)">Decrease counter (@counter)</button>
+<button @onclick="@(() => counter = 0)">Reset counter (@counter)</button>
+
+<ul>
+    @for (int i = 0; i < counter; i++)
+    {
+        var date = DateTime.Now.AddDays(i);
+        <li>@date</li>
+    }
+</ul>
+
+<h3>@DateTime.Now</h3>
+<h3>@(DateTime.Now + TimeSpan.FromDays(7))</h3>
+<h3>
+    @{
+        int x = 10;
+
+        int y = 11;
+
+        int z = x + y;
+
+        <text>@z</text>
+    }
+
+    @z
+</h3>
+<p>
+    @x
+</p>

@@ -1,0 +1,38 @@
+﻿@if (IsLoading)
+{
+    @if (LoadingPlaceholder != null)
+    {
+        @LoadingPlaceholder(42)
+    }
+    else
+    {
+        <p>Lade Daten...</p>
+    }
+}
+else
+{
+    @Content
+}
+
+
+@code
+{
+    [Parameter]
+    public bool IsLoading { get; set; }
+
+    [Parameter]
+    public RenderFragment<int> LoadingPlaceholder { get; set; }
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+}

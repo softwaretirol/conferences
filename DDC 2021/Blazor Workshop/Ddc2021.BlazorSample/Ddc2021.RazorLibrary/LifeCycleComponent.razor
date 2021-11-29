@@ -1,0 +1,53 @@
+﻿
+<Loading IsLoading="persons == null">
+    <LoadingPlaceholder>
+        Lade Daten... @context
+    </LoadingPlaceholder>
+    <Content>
+        <button @onclick="Refresh">Refresh</button>
+        <table>
+            @foreach (var item in persons)
+            {
+                <tr>
+                    <td>
+                        @item.FirstName
+                    </td>
+                    <td>
+                        @item.LastName
+                    </td>
+                </tr>
+            }
+        </table>
+    </Content>
+</Loading>
+
+@code
+{
+
+    private List<Person> persons;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+        persons = null;
+        await Task.Delay(5_000);
+        persons = new List<Person>
+        {
+            new Person()
+            {
+                FirstName = "Christian",
+                LastName = "Giesswein"
+            }
+        };
+    }
+
+    public class Person
+    {
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+    }
+}
