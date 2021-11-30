@@ -1,0 +1,38 @@
+﻿@page "/"
+@using AspNetCore.Client
+@inject ISpeakerClient client
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+@if (Speakers != null)
+{
+    @foreach (var speaker in Speakers)
+    {
+        <p>@speaker.Id - @speaker.FirstName</p>
+    }
+
+    <button @onclick="Create">Create Speaker</button>
+}
+
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        Speakers = await client.GetAllAsync();
+    }
+
+    public ICollection<DdcSpeakerInfo> Speakers { get; set; }
+
+    private async Task Create()
+    {
+        await client.AddNewSpeakerAsync();
+    }
+}
