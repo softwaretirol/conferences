@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+		<LangVersion>Latest</LangVersion>
+		<UseWindowsForms>True</UseWindowsForms>
+
+
+
+		<!--<AssemblyName>asdasd</AssemblyName>-->
+		<!--<UseWindowsForms>true</UseWindowsForms>-->
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Resource Include="Images\**\*.jpg" />
+		<Resource Include="Images\**\*.jpeg" />
+		<Resource Include="Images\**\*.png" />
+		<Resource Include="Images\**\*.gif" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\DdcWorkshop.WpfSampleLibrary\DdcWorkshop.WpfSampleLibrary.csproj" />
+	</ItemGroup>
+
+
+</Project>

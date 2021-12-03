@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="DdcWorkshop.Main.SessionList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:main="clr-namespace:DdcWorkshop.Main"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance main:MainWindowViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid>
+        <!--<AsyncOverlay>
+            <DataGrid ItemsSource="{Binding AllSessions.Value}" />
+        </AsyncOverlay>-->
+
+        <DataGrid ItemsSource="{Binding AllSessions.Value}" />
+        <ProgressBar
+            Width="200"
+            Height="4"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsIndeterminate="{Binding AllSessions.IsLoading}" />
+
+        <Button
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Command="{Binding AllSessions.ReloadCommand}">
+            <TextBlock Text="{Binding AllSessions.LastLoadingException.Message}" />
+        </Button>
+    </Grid>
+</UserControl>

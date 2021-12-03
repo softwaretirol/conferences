@@ -1,0 +1,50 @@
+﻿<Window
+    x:Class="DdcWorkshop.Main.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contracts="clr-namespace:DdcWorkshop.Status.Contracts;assembly=DdcWorkshop.Status.Contracts"
+    xmlns:controls="clr-namespace:DdcWorkshop.Controls;assembly=DdcWorkshop.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:main="clr-namespace:DdcWorkshop.Main"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance main:MainWindowViewModel}"
+    mc:Ignorable="d">
+    <!--<Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel d:DataContext="{d:DesignInstance main:MainWindowViewModel}">
+            <TextBox FontSize="{Binding Name}" Text="{Binding Name}" />
+            <TextBox Text="{Binding Name}" />
+            <TextBox Text="{Binding Name}" />
+            <TextBox Text="{Binding Name}" />
+            <Button Command="{Binding ClearCommand}">Clear Name</Button>
+
+            <TextBlock Text="{Binding ClearDates.Count}" />
+
+            <Button Content="Show new Window" Command="{Binding ShowWindowCommand}" />
+            <!--<ListBox ItemsSource="{Binding ClearDates}" />-->
+        </StackPanel>
+
+        <main:SessionList Grid.Row="1" />
+
+        <StackPanel Grid.Row="2">
+            <controls:LookupType Type="contracts:IStatusView" />
+            <controls:LookupType Type="contracts:IStatusView" />
+            <controls:LookupType Type="contracts:IStatusView" />
+            <controls:LookupType Type="contracts:IStatusView" />
+            <controls:LookupType Type="contracts:IStatusView" />
+        </StackPanel>
+
+    </Grid>
+</Window>
