@@ -1,0 +1,29 @@
+﻿@if (isLoading)
+{
+    <li>Loading data...</li>
+}
+else
+{
+    @if (Number > 5)
+    {
+        <li style="color: @(Number % 2 == 0 ? "green" : "red")">@Number</li>
+    }
+    else
+    {
+        <li>Zu klein.</li>
+    }
+}
+@code {
+    [Parameter]
+    public int Number { get; set; }
+
+    private bool isLoading;
+
+    protected override async Task OnInitializedAsync()
+    {
+        isLoading = true;
+        await Task.Delay(4000);
+        isLoading = false;
+    }
+
+}
