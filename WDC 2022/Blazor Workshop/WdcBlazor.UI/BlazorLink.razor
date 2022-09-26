@@ -1,0 +1,22 @@
+﻿
+<a href="@BuildHref()" target="@(LinkType == BlazorLinkType.NewWindow ? "_blank" : "")">@LinkContent</a>
+
+@code 
+{
+    [Parameter]
+    public string LinkTarget { get; set; }
+
+    [Parameter]
+    public string LinkContent { get; set; }
+
+    [Parameter]
+    public BlazorLinkType LinkType { get; set; } = BlazorLinkType.NewWindow;
+
+    private string BuildHref()
+    {
+        if (LinkTarget.StartsWith("http"))
+            return LinkTarget;
+
+        return "https://" + LinkTarget;
+    }
+}

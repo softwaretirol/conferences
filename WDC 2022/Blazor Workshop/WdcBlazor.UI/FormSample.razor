@@ -1,0 +1,36 @@
+﻿@inherits ComponentBase
+
+<h3>FormSample - @newPerson.Vorname @newPerson.Nachname</h3>
+
+<EditForm EditContext="context" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <ValidationMessage For="() => newPerson.Vorname" />
+    <InputText Value="@newPerson.Vorname"
+               ValueExpression="() => newPerson.Vorname"
+               ValueChanged="x => newPerson.Vorname = x" />
+
+    <ValidationMessage For="() => newPerson.Nachname" />
+    <InputText @bind-Value="newPerson.Nachname" />
+
+    <input type="submit" value="Speichern" disabled="@(!context.Validate())" />
+</EditForm>
+
+
+@code
+{
+    Person newPerson = new Person();
+    EditContext context;
+
+    protected override void OnInitialized()
+    {
+        context = new(newPerson);
+    }
+
+    private void Save()
+    {
+        // Save to API/DB/....
+        context = new(new Person());
+    }
+}

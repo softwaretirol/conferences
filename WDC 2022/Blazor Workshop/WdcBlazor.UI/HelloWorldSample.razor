@@ -1,0 +1,102 @@
+﻿@using System.Net.Sockets
+
+<p>Hallo heute ist der @DateTime.Now :-)</p>
+
+<p>
+    Ach übrigens =@(1 + 1 + DateTime.Now.Month)
+    das ist doch super! @(true && true)
+</p>
+
+@{
+    int x = 10;
+    int y = 20;
+    var summe = x + y;
+}
+
+<p>Die Summe ist=@summe</p>
+
+<ul>
+    @for (int i = 0; i < counter; i++)
+    {
+        <li class="@CalculateEintragCssClass(i)">@(i+1). Eintrag</li>
+    }
+</ul>
+
+<button @onclick="ClickHandler">Klick mich!</button>
+
+Hallo 123123
+
+<button @onclick="AddPerson">Add Person</button>
+
+<table>
+    <thead>
+        <tr>
+            <td>Vorname</td>
+            <td>Nachname</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in allPersons)
+        { 
+            <tr @ondrag="() => currentPersonToDrag = person" 
+                @ondrop="(e) => OnDrop(person)"
+                ondragover="function(ev){ ev.preventDefault() }"
+                draggable="true"
+                >
+                <td class="@CalculateEintragCssClass(allPersons.IndexOf(person))">
+                    @person.Vorname
+                </td>
+                <td>@person.Nachname</td>
+                <td>
+                    <button @onclick="() => allPersons.Remove(person)">Löschen</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code
+{
+    Person currentPersonToDrag;
+    int counter = 2;
+
+    private void ClickHandler()
+    {
+        //TcpListener listener = new TcpListener(9000);
+        //listener.AcceptSocket();
+
+        //string content = File.ReadAllText(@"C:\text.txt");
+
+        //File.WriteAllText(@"C:\text.txt", "Hallo");
+
+        var dt = DateTime.Now;
+        counter++;
+    }
+
+    private string CalculateEintragCssClass(int number)
+    {
+        return number % 2 == 0 ? "gerade" : "ungerade";
+    }
+
+    List<Person> allPersons = new List<Person>();
+
+  
+
+    private void AddPerson()
+    {
+        allPersons.Add(new Person()
+            {
+                Vorname = DateTime.Now.DayOfWeek.ToString(),
+                Nachname = DateTime.Now.Ticks.ToString()
+            });
+    }
+
+    private void OnDrop(Person targetPerson)
+    {
+        var targetIndex = allPersons.IndexOf(targetPerson);
+        var sourceIndex = allPersons.IndexOf(currentPersonToDrag);
+        allPersons[sourceIndex] = targetPerson;
+        allPersons[targetIndex] = currentPersonToDrag;
+    }
+}

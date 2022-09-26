@@ -1,0 +1,40 @@
+﻿
+
+<div @onclick="ToggleExpander">
+    @if (HeaderCondition != null && HeaderCondition())
+    {
+        @HeaderText
+    }
+    else
+    {
+        @Header
+    }
+</div>
+
+<div class="@(isExpanded ? "" :  "hide")">
+    @Content
+</div>
+
+@code 
+{
+    [Parameter]
+    public Func<bool> HeaderCondition { get; set; }
+
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public string HeaderText { get; set; }
+
+
+    [Parameter]
+    public RenderFragment Content { get; set; }
+
+
+    bool isExpanded;
+
+    private void ToggleExpander()
+    {
+        isExpanded = !isExpanded;
+    }
+}
