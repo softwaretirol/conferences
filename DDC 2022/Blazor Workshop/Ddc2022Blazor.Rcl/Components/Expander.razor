@@ -1,0 +1,9 @@
+﻿
+<div class="container">
+    <div class="header" @onclick="() => isExpanded = !isExpanded">
+        @Header
+    </div>
+    <div class="content" style="@(isExpanded ? "" : "display: none")">
+        @Content
+    </div>
+</div>

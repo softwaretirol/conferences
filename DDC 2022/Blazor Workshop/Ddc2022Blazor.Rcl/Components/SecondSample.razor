@@ -1,0 +1,11 @@
+﻿@page "/SecondSample"
+@page "/SecondSample/{Id:int}"
+
+
+<h3>SecondSample - @Id</h3>
+
+@code 
+{
+    [Parameter]
+    public int? Id { get; set; }
+}

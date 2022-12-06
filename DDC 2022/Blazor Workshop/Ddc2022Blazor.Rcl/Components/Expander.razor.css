@@ -1,0 +1,13 @@
+﻿.container {
+    margin: 4px;
+    border: 1px solid #efefef;
+    padding: 8px;
+}
+
+.header {
+    padding: 8px;
+}
+
+.content {
+    padding: 8px;
+}

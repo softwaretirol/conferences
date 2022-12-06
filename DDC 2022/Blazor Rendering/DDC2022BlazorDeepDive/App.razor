@@ -1,0 +1,17 @@
+﻿<h1>
+    Blazor is awesome (@_counter)!
+</h1>
+
+<button @onclick="Increase">Click</button>
+<MyOtherComponent Parameter1="Hallo"/>
+
+@code
+{
+    int _counter;
+
+
+    public void Increase()
+    {
+        _counter++;
+    }
+}

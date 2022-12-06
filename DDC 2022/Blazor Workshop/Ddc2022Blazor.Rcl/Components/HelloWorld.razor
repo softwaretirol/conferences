@@ -1,0 +1,93 @@
+﻿@using Ddc2022Blazor.Rcl.Services
+@inject PersonService PersonService
+@using Microsoft.AspNetCore.Components.Forms
+@*<h3>HelloWorld @DateTime.Now</h3>
+
+<h3>@(1 + 1)</h3>
+
+
+<h3>
+    @for(int i = 0; i < 10; i++)
+    {
+        int x = 1;
+        int y = 1;
+        int summe = x + y;
+        <p>Hello World @DateTime.Now</p>
+    }
+</h3>*@
+
+<button @onclick="() => Count++">Increment</button>
+<button @onclick="() => Count--">Decrement</button>
+<ul>
+    @for (int i = 0; i < Count; i++)
+    {
+        <li style="@ComputeItemStyle(i)">@i</li>
+
+        @*if (i % 2 == 0)
+        {
+            <li style="color:green">@i</li>
+        }
+        else
+        {
+            <li style="color:Red">@i</li>
+        }*@
+    }
+</ul>
+
+<button @onclick="AddPerson">Add Person</button>
+<table>
+    @foreach (var person in PersonService.Persons)
+    {
+        <tr>
+            <td>@person.Name</td>
+            <td>@person.CreationDate.ToShortDateString()</td>
+            <td>
+                <button @onclick="() => PersonService.Persons.Remove(person)">Delete me</button>
+            </td>
+        </tr>
+    }
+</table>
+
+
+<EditForm Model="newPerson" OnValidSubmit="SavePerson">
+    <InputText Value="@newPerson.Name" 
+               ValueChanged="x => newPerson.Name = x"
+               ValueExpression="() => newPerson.Name"/>
+    <InputText @bind-Value="@newPerson.Name" />
+    <input type="submit" value="Save Person"/>
+</EditForm>
+
+
+@code {
+
+    Person newPerson = new();
+    
+    [Parameter]
+    public int Count { get; set; } = 10;
+
+    //private void Increment()
+    //{
+    //    Count++;
+    //}
+
+    private string ComputeItemStyle(int i)
+    {
+        return i % 2 == 0 ? "color: green" : " color: red";
+    }
+
+    private void AddPerson()
+    {
+        PersonService.Persons.Add(new Person()
+        {
+            Name = DateTime.Now.ToString(),
+            CreationDate = DateTime.Now
+        });
+    }
+
+    private void SavePerson()
+    {
+        PersonService.Persons.Add(newPerson);
+        newPerson = new();
+    }
+
+}

@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Ddc2022Blazor.HelloWorld": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:61487;http://localhost:61488"
+    }
+  }
+}

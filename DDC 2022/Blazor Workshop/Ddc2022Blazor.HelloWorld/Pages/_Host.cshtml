@@ -1,0 +1,23 @@
+﻿@page
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@using Ddc2022Blazor.Rcl.Components
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Ddc2022Blazor.HelloWorld.Pages._HostModel
+@{
+}
+<html>
+
+<head>
+    <link rel="stylesheet" href="site.css" />
+    <link rel="stylesheet" href="Ddc2022Blazor.HelloWorld.styles.css" />
+    <base href="/"/>
+</head>
+<body>
+    <component type="typeof(App)" render-mode="Server" />
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
+
+

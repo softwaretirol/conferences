@@ -1,0 +1,11 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+
+<Navigation/>
+
+<Router AppAssembly="typeof(App).Assembly">
+    <NotFound>Seite existiert nicht ;-(...</NotFound>
+    <Found>
+        <RouteView RouteData="context"/>
+    </Found>
+
+</Router>

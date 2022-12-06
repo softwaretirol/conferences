@@ -1,0 +1,19 @@
+﻿@page "/"
+@using DDC2022BlazorDeepDive
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <base href="~/"/>
+    <link href="DDC2022BlazorDeepDive.styles.css" rel="stylesheet"/>
+</head>
+<body>
+
+<component type="typeof(App)" render-mode="Server"/>
+<script src="_framework/blazor.server.js"></script>
+</body>
+</html>
