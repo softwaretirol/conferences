@@ -1,0 +1,25 @@
+﻿@page
+@using BlazorUI
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    
+    @if (Request.Query.ContainsKey("client"))
+    {
+        <div id="app"></div>
+        <script src="_framework/blazor.webassembly.js"></script>
+    }
+    else
+    {
+        <component type="@typeof(HelloWorld)" render-mode="Server"></component>
+        <script src="_framework/blazor.server.js"></script>
+    }
+</div>
+</body>
+</html>

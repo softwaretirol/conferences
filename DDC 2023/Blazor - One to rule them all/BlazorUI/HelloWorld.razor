@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Components
+@using BlazorUI.Contracts
+
+@inject IPersonDataSource PersonDataSource
+
+<h3>HelloWorld</h3>
+
+@if (!hasLoaded)
+{
+    <p>Loading</p>
+}else {
+    <ul>
+        @foreach(var person in _persons)
+        {
+            <li>@person.FirstName</li>
+        }
+    </ul>
+}
+
+<button @onclick="Refresh">Reload</button>
+
+@code {
+
+    private bool hasLoaded;
+    private List<Person> _persons;
+    protected override async Task OnInitializedAsync()
+    {
+        await Refresh();
+    }
+
+    private async Task Refresh()
+    {
+        hasLoaded = false;
+        await Task.Delay(1000);
+        _persons = await PersonDataSource.Get();
+        hasLoaded = true;
+    }
+
+}
