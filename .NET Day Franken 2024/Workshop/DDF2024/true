@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DDF2024</name>
+    </assembly>
+    <members>
+        <member name="M:DDF2024.CustomerController.GetNames">
+            <summary>
+            Gibt alle Namen zurück
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
