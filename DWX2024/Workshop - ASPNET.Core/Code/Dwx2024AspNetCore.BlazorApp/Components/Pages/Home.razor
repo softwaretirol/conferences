@@ -1,0 +1,44 @@
+﻿@page "/"
+@using Dwx2024AspNetCore.Client
+@rendermode @(new InteractiveServerRenderMode(false))
+<PageTitle>Home</PageTitle>
+
+
+<button @onclick="FetchDataFromApi">
+    Fetch data from API
+</button>
+
+@if (_persons == null)
+{
+    <p>Lade Daten von der Api.....</p>
+}
+else
+{
+    <table>
+        @foreach (var person in _persons)
+        {
+            <tr>
+                <td>@person.Vorname</td>
+            </tr>
+        }
+    </table>
+}
+
+@code {
+
+    private List<Person> _persons;
+    // C#
+
+    private async Task FetchDataFromApi()
+    {
+        var baseAddress = "http://localhost:5021/";
+        var httpClient = new HttpClient()
+        {
+            BaseAddress = new Uri(baseAddress)
+        };
+        var client = new Dwx2024AspNetCore.Web.Client.Client(httpClient);
+        _persons = await client.PersonGetAsync();
+    }
+
+
+}
