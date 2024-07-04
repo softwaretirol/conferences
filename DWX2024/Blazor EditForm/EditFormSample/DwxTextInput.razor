@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@using System.Linq.Expressions
+
+@{
+    var isModified = EditContext.IsModified(field);
+    var errors = EditContext.GetValidationMessages(field);
+    @if (errors.Any())
+    {
+        @foreach (var error in errors)
+        {
+            <label>@error</label>
+        }
+    }
+}
+
+<input class="@(isModified ? "modified" : "") @(errors.Any() ? "error" : "")"
+       type="text"
+       value="@Value"
+       @oninput="@(UpdateJETZT ? UpdateValue : null)"
+       @onchange="@(UpdateJETZT ? null : UpdateValue)"/>
+
+@code {
+    private FieldIdentifier field;
+
+    [Parameter] public bool UpdateJETZT { get; set; }
+
+    [Parameter] public string Value { get; set; }
+
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter] // () => person.FirstName
+    public Expression<Func<string>> ValueExpression { get; set; }
+
+    [CascadingParameter] public EditContext EditContext { get; set; }
+
+    private async Task UpdateValue(ChangeEventArgs arg)
+    {
+        string value = Convert.ToString(arg.Value);
+        Value = value;
+        await ValueChanged.InvokeAsync(Value);
+        EditContext.NotifyFieldChanged(field);
+    }
+
+    protected override void OnInitialized()
+    {
+        field = FieldIdentifier.Create(ValueExpression);
+    }
+
+}

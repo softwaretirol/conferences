@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <InterceptorsPreviewNamespaces>$(InterceptorsPreviewNamespaces);CSharp1213</InterceptorsPreviewNamespaces>
+    </PropertyGroup>
+
+
+</Project>

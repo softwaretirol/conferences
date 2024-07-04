@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+<CascadingValue Value="@Context">
+    <form @onsubmit="HandleSubmit">
+        @ChildContent
+    </form>
+</CascadingValue>
+
+
+@code {
+    [Parameter] public EditContext Context { get; set; }
+    [Parameter] public object Model { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
+    protected override void OnInitialized()
+    {
+        Context ??= new EditContext(Model);
+    }
+
+    private Task HandleSubmit()
+    {
+        Context.Validate();
+
+        return Task.CompletedTask;
+    }
+
+}

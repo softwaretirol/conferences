@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@using System.Linq.Expressions
+<input type="text"
+       class="@(hasChanged ? "changed" : "") @(hasError ? "error" : "")"
+       @onchange="@UpdateValue"
+       value="@Value">
+
+@code {
+    private FieldIdentifier fieldIdentifier;
+    private bool hasError;
+    private bool hasChanged;
+
+    [CascadingParameter] public EditContext EditContext { get; set; }
+
+    [Parameter] public string Value { get; set; }
+
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+
+    [Parameter] public Expression<Func<string>> ValueExpression { get; set; }
+
+    private async Task UpdateValue(ChangeEventArgs args)
+    {
+        var newValue = (string)args.Value;
+        Value = newValue;
+        await ValueChanged.InvokeAsync(newValue);
+        hasChanged = true;
+
+        EditContext.NotifyFieldChanged(fieldIdentifier);
+    }
+
+    protected override void OnInitialized()
+    {
+        fieldIdentifier = FieldIdentifier.Create(ValueExpression);
+        EditContext.OnValidationStateChanged += OnValidationStateChanged;
+    }
+
+    private void OnValidationStateChanged(object sender, ValidationStateChangedEventArgs e)
+    {
+        hasError = EditContext.GetValidationMessages(fieldIdentifier).Any();
+    }
+
+}

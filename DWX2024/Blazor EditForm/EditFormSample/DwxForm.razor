@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+@typeparam T
+
+<form @onsubmit="HandleSubmit">
+    <CascadingValue Value="editContext">
+        @ChildContent
+    </CascadingValue>
+</form>
+
+@code {
+    private EditContext editContext;
+
+    [Parameter] public T Data { get; set; }
+
+    [Parameter] public RenderFragment ChildContent { get; set; }
+
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    protected override void OnInitialized()
+    {
+        editContext = new EditContext(Data);
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (editContext.Validate())
+        {
+            await OnValidSubmit.InvokeAsync();
+        }
+    }
+
+}

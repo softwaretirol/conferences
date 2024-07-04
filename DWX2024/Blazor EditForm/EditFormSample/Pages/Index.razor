@@ -1,0 +1,59 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Forms
+@using System.ComponentModel.DataAnnotations
+<h3>DWX ROCKS! 👍💪</h3>
+
+
+<DwxForm Data="@person">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+
+    <DwxTextInput Value="@person.FirstName" 
+                  ValueExpression="@(() => person.FirstName)"
+                  ValueChanged="@(x => person.FirstName = x)"/>
+    <DwxTextInput @bind-Value="@(person.FirstName)"
+                  UpdateJETZT="true"/>
+
+    <input type="text"/>
+    <input type="submit" value="Save it! NOW!">
+
+</DwxForm>
+
+
+<EditForm Model="person" OnValidSubmit="Save">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    
+    <ValidationMessage For="@(() => person.FirstName)" />
+    <InputText @bind-Value="@person.FirstName"/>
+    
+    <ValidationMessage For="@(() => person.LastName)" />
+    <InputText @bind-Value="@person.LastName"/>
+    
+    <input type="submit" value="Save it! NOW!">
+</EditForm>
+
+<p>
+    @person.FirstName @person.LastName
+</p>
+
+@code{
+
+    Person person = new();
+
+    public class Person
+    {
+        [Required, MinLength(3)]
+        public string FirstName { get; set; }
+        
+        [Required, MinLength(3)]
+        public string LastName { get; set; }
+    }
+
+    private void Save()
+    {
+        // ....
+    }
+
+}
