@@ -1,0 +1,61 @@
+﻿<Window x:Class="GameOfLife.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModel="clr-namespace:GameOfLife.ViewModel"
+        xmlns:view="clr-namespace:GameOfLife.View"
+        Title="MainWindow" 
+        WindowState="Maximized"
+        mc:Ignorable="d">
+
+  <FrameworkElement.Resources>
+    <DataTemplate DataType="{x:Type viewModel:MainScreenViewModel}">
+      <DockPanel>
+        <FrameworkElement.Resources>
+          <Style TargetType="Button" BasedOn="{StaticResource FlatButton}">
+            <Setter Property="Margin" Value="5, 0"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="32"/>
+          </Style>
+        </FrameworkElement.Resources>
+
+        <DockPanel Margin="0,5" DockPanel.Dock="Top">
+          <StackPanel Orientation="Horizontal" DockPanel.Dock="Right" >
+            <Button Content="Add Petri Dish" Command="{Binding AddPetriDishCommand}"/>
+            <Button Content="Remove Petri Dish" Command="{Binding RemovePetriDishCommand}"/>
+            <Button Content="Settings" IsEnabled="False" Command="{Binding ShowSettingsCommand}"/>
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="Start" Command="{Binding StartCommand}"/>
+            <Button Content="One step" Command="{Binding OneStepCommand}"/>
+            <Button Content="Stop" Command="{Binding StopCommand}"/>
+            <Button Content="Generate" Command="{Binding GenerateCommand}"/>
+            <Button Content="Clear" Command="{Binding ClearCommand}"/>
+          </StackPanel>
+        </DockPanel>
+
+        <ItemsControl ItemsSource="{Binding PetriDishesCollection}" Background="DarkGray">
+          <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+              <WrapPanel />
+            </ItemsPanelTemplate>
+          </ItemsControl.ItemsPanel>
+          <ItemsControl.ItemContainerStyle>
+            <Style TargetType="ContentPresenter">
+              <Setter Property="Margin" Value="5"/>
+            </Style>
+          </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+      </DockPanel>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:PetriDish}">
+      <view:PetriDishControl ViewModel="{Binding}" />
+    </DataTemplate>
+  </FrameworkElement.Resources>
+
+  <ContentControl Content="{Binding}" />
+
+</Window>

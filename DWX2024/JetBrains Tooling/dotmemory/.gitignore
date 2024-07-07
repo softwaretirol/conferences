@@ -1,0 +1,16 @@
+# Nuget packages
+Packages/
+
+# Compiling result files
+Bin/
+Obj/
+
+# Visual Studio and ReSharper files
+_ReSharper.Caches/
+.vs/
+*.sdf
+*.suo
+*.user
+
+# Rider Files
+.idea/
