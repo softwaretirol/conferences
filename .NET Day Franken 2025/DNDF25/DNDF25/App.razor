@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using DNDF25.RazorLibrary
+<!DOCTYPE html>
+<html lang="en">
+@{
+    var rendermode = new InteractiveServerRenderMode(false);
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="@Assets["_content/DNDF25.RazorLibrary/app.css"]" />
+    <link rel="stylesheet" href="@Assets["DNDF25.styles.css"]" />
+    <ImportMap />
+    <HeadOutlet @rendermode="rendermode" />
+</head>
+
+<body>
+    <Routes @rendermode="rendermode" />
+    <script src="_framework/blazor.web.js"></script>
+</body>
+
+</html>

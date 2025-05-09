@@ -1,0 +1,45 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Razor Syntax
+
+<p>
+    Today is @DateTime.Now.DayOfWeek and it is @DateTime.Now.ToShortTimeString()
+</p>
+
+<p>
+    1 + 2 = @(1 + 2 + 3 * 4)
+</p>
+
+<p>
+    @{
+        int x = 1;
+        int y = 2;
+        int sum = x + y;
+        <span>The sum of 1 + 2 = @sum</span>
+    }
+</p>
+
+
+<button @onclick="() => counter++">Increase Counter</button>
+<ul>
+    @for (int i = 0; i < counter; i++)
+    {
+        <li class="@(EvenCalculator.IsEvenColorClass(i))">
+            I am item @i
+        </li>
+    }
+</ul>
+
+@code
+{
+
+    public class Person
+    {
+        
+    }
+    private int counter = 10;
+}

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNDF25", "DNDF25\DNDF25.csproj", "{CAE72D4C-7FA0-4161-9641-640B0FD80333}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNDF25.RazorLibrary", "DNDF25.RazorLibrary\DNDF25.RazorLibrary.csproj", "{9C84C58E-76AE-4BFD-BEFB-FA322CF164E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNDF25.Wpf", "DNDF25.Wpf\DNDF25.Wpf.csproj", "{197762E2-6CDE-4AC3-8A4C-87C5BFA6B5D2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAE72D4C-7FA0-4161-9641-640B0FD80333}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAE72D4C-7FA0-4161-9641-640B0FD80333}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAE72D4C-7FA0-4161-9641-640B0FD80333}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAE72D4C-7FA0-4161-9641-640B0FD80333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C84C58E-76AE-4BFD-BEFB-FA322CF164E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C84C58E-76AE-4BFD-BEFB-FA322CF164E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C84C58E-76AE-4BFD-BEFB-FA322CF164E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C84C58E-76AE-4BFD-BEFB-FA322CF164E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{197762E2-6CDE-4AC3-8A4C-87C5BFA6B5D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{197762E2-6CDE-4AC3-8A4C-87C5BFA6B5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{197762E2-6CDE-4AC3-8A4C-87C5BFA6B5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{197762E2-6CDE-4AC3-8A4C-87C5BFA6B5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
