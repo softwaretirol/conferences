@@ -1,0 +1,31 @@
+﻿@page "/ListSample"
+
+<h3>ListSample</h3>
+<button @onclick="AddItem">Add Item</button>
+<table>
+    <Virtualize Items="numbers">
+        <tr @key="context">
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+            <td>@context</td>
+        </tr>
+    </Virtualize>
+</table>
+
+@code {
+
+    private List<int> numbers = Enumerable.Range(0, 10000).ToList();
+
+    private void AddItem()
+    {
+        numbers.Insert(0, (int)DateTime.Now.Ticks);
+    }
+
+}
