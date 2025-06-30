@@ -1,0 +1,37 @@
+﻿@page "/BlazorSample1"
+
+<h3>BlazorSample1</h3>
+
+<button @onclick="() => entries.Add(new Entry())">
+    Füge Eintrag hinzu
+</button>
+<button @onclick="() => entries.RemoveAt(0)">
+    Lösche 1. Eintrag
+</button>
+
+<ul>
+    @foreach(var entry in entries)
+    {
+        <li style="color: @CalculateNumberColor(entry.DateTime.Second)"
+            @key=entry>
+            @entry.DateTime Eintrag
+            
+            <button @onclick="() => entries.Remove(entry)">Lösche mich!</button>
+        </li>
+    }
+</ul>
+
+@code {
+
+    class Entry
+    {
+        public DateTime DateTime { get; set; } = DateTime.Now;
+    }
+    List<Entry> entries = new List<Entry>();
+
+    private string CalculateNumberColor(int number)
+    {
+        return number % 2 == 0 ? "green" : "red";
+    }
+
+}

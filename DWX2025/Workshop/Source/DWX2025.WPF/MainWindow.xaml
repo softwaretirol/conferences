@@ -1,0 +1,27 @@
+﻿<Window x:Class="DWX2025.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DWX2025.WPF"
+        xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation/blazor"
+        xmlns:components="clr-namespace:DWX2025.RCL.Components;assembly=DWX2025.RCL"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+
+
+    <TabControl>
+        <TabItem Header="Old School WPF">
+            <DataGrid/>
+        </TabItem>
+        <TabItem Header="Blazor">
+            <wpf:BlazorWebView HostPage="wwwroot/WpfHostPage.html"
+                               x:Name="BlazorWebView">
+                <wpf:BlazorWebView.RootComponents>
+                    <wpf:RootComponent Selector="app"
+                                       ComponentType="{x:Type components:Routes}"/>
+                </wpf:BlazorWebView.RootComponents>
+            </wpf:BlazorWebView>
+        </TabItem>
+    </TabControl>
+</Window>

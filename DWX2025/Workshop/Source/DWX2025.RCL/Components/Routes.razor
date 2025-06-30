@@ -1,0 +1,15 @@
+﻿@using System.Reflection
+<Router AppAssembly="typeof(Routes).Assembly"
+        AdditionalAssemblies="otherAssemblies">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData"
+                   DefaultLayout="typeof(Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+</Router>
+
+@code {
+
+    Assembly[] otherAssemblies = [];
+
+}

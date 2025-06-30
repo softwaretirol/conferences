@@ -1,0 +1,26 @@
+﻿@using System.Diagnostics
+@using DWX2025.RCL.Components
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+    <link rel="stylesheet" href="@Assets["app.css"]" />
+    <link rel="stylesheet" href="@Assets["DWX2025.styles.css"]" />
+    <ImportMap />
+    <HeadOutlet @rendermode="InteractiveServer" />
+</head>
+
+<body>
+@{
+    IComponentRenderMode renderMode = InteractiveServer;
+    // if (Debugger.IsAttached)
+    //     renderMode = InteractiveWebAssembly;
+}
+    <Routes @rendermode="renderMode" />
+<script src="_framework/blazor.web.js"></script>
+</body>
+
+</html>

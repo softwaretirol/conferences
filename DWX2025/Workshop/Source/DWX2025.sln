@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWX2025", "DWX2025\DWX2025.csproj", "{CB15FD65-B1E7-48FA-9534-7996F61956A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWX2025.RCL", "DWX2025.RCL\DWX2025.RCL.csproj", "{D43DC9CD-BA93-4E26-AD13-D78C294504FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DWX2025.WPF", "DWX2025.WPF\DWX2025.WPF.csproj", "{D2DBE556-C0E4-489C-93A6-198A18A09649}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB15FD65-B1E7-48FA-9534-7996F61956A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB15FD65-B1E7-48FA-9534-7996F61956A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB15FD65-B1E7-48FA-9534-7996F61956A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB15FD65-B1E7-48FA-9534-7996F61956A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D43DC9CD-BA93-4E26-AD13-D78C294504FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D43DC9CD-BA93-4E26-AD13-D78C294504FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D43DC9CD-BA93-4E26-AD13-D78C294504FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D43DC9CD-BA93-4E26-AD13-D78C294504FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2DBE556-C0E4-489C-93A6-198A18A09649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DBE556-C0E4-489C-93A6-198A18A09649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DBE556-C0E4-489C-93A6-198A18A09649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DBE556-C0E4-489C-93A6-198A18A09649}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
