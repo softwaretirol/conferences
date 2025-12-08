@@ -1,0 +1,36 @@
+hetzner_token: 
+cluster_name: hello-world
+kubeconfig_path: "./kubeconfig"  
+k3s_version: v1.32.0+k3s1
+
+networking:
+  ssh:
+    port: 22
+    use_agent: false
+    public_key_path: "~/.ssh/id_ed25519.pub"
+    private_key_path: "~/.ssh/id_ed25519"
+  allowed_networks:
+    ssh:
+      - 0.0.0.0/0
+    api:
+      - 0.0.0.0/0 
+
+masters_pool:
+  instance_type: cpx21
+  instance_count: 1
+  locations:
+    - fsn1
+
+worker_node_pools:
+- name: small
+  instance_type: cpx21
+  instance_count: 10
+  location: fsn1
+
+- name: big
+  instance_type: cpx31
+  location: fsn1
+  autoscaling:
+    enabled: true
+    min_instances: 0
+    max_instances: 3

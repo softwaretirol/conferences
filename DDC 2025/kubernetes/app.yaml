@@ -1,0 +1,89 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testapp
+      
+      resources:
+        requests:
+            cpu: "100m"
+            memory: "256Mi"
+        limits:
+            cpu: "500m"
+            memory: "512Mi"
+
+      livenessProbe:
+        httpGet:
+            path: /health/live
+            port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 10
+        timeoutSeconds: 2
+        failureThreshold: 3
+
+      readinessProbe:
+        httpGet:
+            path: /health/ready
+            port: 8080
+        initialDelaySeconds: 5
+        periodSeconds: 5
+        timeoutSeconds: 2
+        failureThreshold: 3
+
+      startupProbe:
+        httpGet:
+            path: /health/live
+            port: 8080
+        failureThreshold: 30  
+        periodSeconds: 10
+  template:
+    metadata:
+      labels:
+        app: testapp
+    spec:
+      containers:
+        - name: testapp
+          image: registry.kubetest.giesswein.dev/kubernetessample:latest
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: testapp
+spec:
+  selector:
+    app: testapp
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testapp
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: le
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - app.kubetest.giesswein.dev
+  rules:
+    - host: app.kubetest.giesswein.dev
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: testapp
+                port:
+                  number: 8080
