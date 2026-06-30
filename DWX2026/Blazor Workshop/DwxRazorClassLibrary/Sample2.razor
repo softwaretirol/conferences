@@ -1,0 +1,25 @@
+@page "/Sample2"
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@inject IJSRuntime Javascript
+
+<h3>Sample2</h3>
+
+<button @onclick="Invoke">
+    Invoke Javascript
+</button>
+
+@if (_result != null)
+{
+    <p>JS Result=@_result</p>
+}
+
+@code {
+    int? _result;
+
+    private async Task Invoke()
+    {
+        _result = await Javascript.InvokeAsync<int>("callMeFromDotNet");
+    }
+
+}

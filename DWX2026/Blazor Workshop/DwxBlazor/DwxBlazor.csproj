@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RequireAspNetCoreAssets>true</RequireAspNetCoreAssets>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DwxRazorClassLibrary\DwxRazorClassLibrary.csproj" />
+      <ProjectReference Include="..\DwxWebAssemblyEntryProgram\DwxWebAssemblyEntryProgram.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.9" />
+    </ItemGroup>
+
+</Project>

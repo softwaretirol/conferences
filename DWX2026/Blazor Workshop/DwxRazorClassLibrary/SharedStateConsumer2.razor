@@ -1,0 +1,11 @@
+@* @inject SharedStateData Data *@
+
+<h3>SharedStateConsumer2</h3>
+
+@code {
+
+    [Parameter]
+    [CascadingParameter]
+    public SharedStateData Data { get; set; }
+    
+}

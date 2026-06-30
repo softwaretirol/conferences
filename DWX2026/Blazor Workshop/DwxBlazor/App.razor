@@ -1,0 +1,23 @@
+@using DwxRazorClassLibrary
+@using Microsoft.AspNetCore.Components.Web
+
+<html>
+<head>
+    <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="DwxBlazor.styles.css"/>
+</head>
+<body>
+
+<div id="app">
+    <Routes
+        @rendermode="@(new InteractiveWebAssemblyRenderMode(false))"/>
+</div>
+
+<script src="_framework/blazor.web.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+
+@code {
+
+}

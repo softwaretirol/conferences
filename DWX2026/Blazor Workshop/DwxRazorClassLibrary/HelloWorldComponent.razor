@@ -1,0 +1,76 @@
+@using Microsoft.AspNetCore.Components.Web
+@page "/HelloWorld"
+
+<h3>HelloWorldComponent</h3>
+
+<p>Der Counter ist=@counter</p>
+<p>Wenn ich den counter um 42 erhöhe=@(counter + 1)</p>
+
+<ul>
+    @for(int i = 0; i < 10; i++)
+    {
+        int sum = counter + 42;
+        int x = 10;
+        int y = 20;
+        <li class="@(i % 2 == 0 ? "even" : "odd")">
+            @(sum + x + y)
+        </li>
+    }
+</ul>
+
+<button @onclick="Increase">
+    Increase counter
+</button>
+
+<table>
+    @foreach (var person in people)
+    {
+        <tr>
+            <td>@person.Vorname</td>
+            <td>@person.Nachname</td>
+            <td>
+                <button @onclick="() => people.Remove(person)">
+                    Delete person
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<button @onclick="AddPerson">Add Person</button>
+
+
+@code {
+    int counter = 42;
+
+    void Increase()
+    {
+        counter++;
+    }
+
+    List<Person> people = new List<Person>()
+    {
+        new Person()
+        {
+            Vorname = "Christian",
+            Nachname = "Giesswein"
+        }
+    };
+    
+    class Person
+    {
+        public string Vorname { get; set; }
+        public string Nachname { get; set; }
+    }
+
+
+    private void AddPerson()
+    {
+        people.Add(new Person()
+        {
+            Vorname = DateTime.Now.ToShortDateString(),
+            Nachname = DateTime.Now.ToShortTimeString(),
+        });
+    }
+
+}
